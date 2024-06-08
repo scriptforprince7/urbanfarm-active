@@ -1,0 +1,385 @@
+{% extends "partials/base.html" %} {% load static %} {% block main %}
+
+<main>
+    <div class="mb-4 pb-4"></div>
+    <section class="shop-checkout container">
+        <h2 class="page-title">Shipping and Checkout</h2>
+        <div class="checkout-steps">
+            <a href="/cart" class="checkout-steps__item active">
+                <span class="checkout-steps__item-number">01</span>
+                <span class="checkout-steps__item-title">
+                    <span>Shopping Bag</span>
+                    <em>Manage Your Items List</em>
+                </span>
+            </a>
+            <a href="/checkout" class="checkout-steps__item active">
+                <span class="checkout-steps__item-number">02</span>
+                <span class="checkout-steps__item-title">
+                    <span>Shipping and Checkout</span>
+                    <em>Checkout Your Items List</em>
+                </span>
+            </a>
+        </div>
+        <form name="checkout-form" action="{% url 'core:checkout' %}" method="post">
+            {% csrf_token %}
+            <div class="checkout-form">
+                <div class="billing-info__wrapper">
+                    <h4>BILLING DETAILS</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_first_name"
+                                    placeholder="First Name" />
+                                <label for="checkout_first_name">First Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_last_name"
+                                    placeholder="Last Name" />
+                                <label for="checkout_last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-check mt-3">
+                                <input class="form-check-input form-check-input_fill" type="checkbox" value=""
+                                    id="create_account" />
+                                <label class="form-check-label" for="create_account">HAVING GST?</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 company-fields">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_company_name"
+                                    placeholder="Company Name (optional)" />
+                                <label for="checkout_company_name">Company Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 company-fields">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_gst_number"
+                                    placeholder="GST Number (optional)" />
+                                <label for="checkout_gst_number">GST Number</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_zipcode"
+                                    placeholder="Postcode / ZIP *" onchange={fetchAddressDetails} />
+                                <label for="checkout_zipcode">Postcode / ZIP *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <select class="form-control" id="pin_details_dropdown" onchange="updatePinDetails()">
+                                    <option value="">Select your area</option>
+                                </select>
+                                <label for="pin_details_dropdown">Select Area</label>
+                            </div>
+                        </div>
+        
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_city" placeholder="Town / City *" />
+                                <label for="checkout_city">City *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_district" placeholder="District *" />
+                                <label for="checkout_district">District *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_division" placeholder="Division *" />
+                                <label for="checkout_division">Division *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_state" placeholder="State *" />
+                                <label for="checkout_state">State *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating mt-3 mb-3">
+                                <input type="text" class="form-control" id="checkout_street_address"
+                                    placeholder="Billing Address *" />
+                                <label for="checkout_street_address">Billing Address *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating mt-3 mb-3">
+                                <input type="text" class="form-control" id="checkout_shipping_address"
+                                    placeholder="Shipping Address *" />
+                                <label for="checkout_shipping_address">Shipping Address *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" id="checkout_phone" placeholder="Phone *" />
+                                <label for="checkout_phone">Phone *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <input type="email" class="form-control" id="checkout_email"
+                                    placeholder="Your Mail *" />
+                                <label for="checkout_email">Your Mail *</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout__totals-wrapper">
+                    <div class="sticky-content">
+                        <div class="checkout__totals">
+                            <h3>Your Order</h3>
+                            <p>You have total <b>{{totalcartitems}}</b>  products</p>
+                            <table class="checkout-cart-items">
+                                <thead>
+                                    <tr>
+                                        <th>PRODUCT</th>
+                                        <th>UNIT PRICE</th>
+                                        <th>SUBTOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for product_id, item in cart_data.items  %}
+                                    <tr>
+                                        <td><img src="{{item.image}}" width="40px" /> <a href="{% url 'core:product_new' item.title %}">{{item.title}}</a>  x {{item.qty}} <br> {{item.sku}}</td>
+                                        <td>₹ {{ item.price_wo_gst }}</td>
+                                        <td>₹ <b>{% widthratio item.price_wo_gst 1 item.qty%}.00</b></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <table class="checkout-totals">
+                                <tbody>
+                                    <tr>
+                                        <th>SUBTOTAL</th>
+                                        <td>₹ {{ price_wo_gst_total }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>SHIPPING</th>
+                                        <td>Free shipping</td>
+                                    </tr>
+                                    <tr>
+                                        <th>GST</th>
+                                        <td>₹ {{total_gst|floatformat:"2"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>TOTAL</th>
+                                        <td>₹ {{cart_total_amount|floatformat:"2"}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="checkout__payment-methods">
+                            <div class="form-check">
+                                <input class="form-check-input form-check-input_fill" type="radio"
+                                    name="checkout_payment_method" id="checkout_payment_method_1" checked />
+                                <label class="form-check-label" for="checkout_payment_method_1">
+                                    Direct bank transfer
+                                    <span class="option-detail d-block">
+                                        Make your payment directly into our bank account. Please
+                                        use your Order ID as the payment reference.Your order
+                                        will not be shipped until the funds have cleared in our
+                                        account.
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="policy-text">
+                                Your personal data will be used to process your order,
+                                support your experience throughout this website, and for
+                                other purposes described in our
+                                <a href="/privacy-policy" target="_blank">privacy policy</a>.
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="rzp-button1">
+                            PLACE ORDER
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var options = {
+        "key": "rzp_test_VhrJLxgWbmNR8Q",
+        "amount": "{{payment.amount}}",
+        "currency": "INR",
+        "name": "Urban Farm",
+        "description": "Test Transaction - Smart for Sustainability",
+        "image": "{% static 'images/logo_org.png' %}",
+        "order_id": "{{payment.id}}",
+        "handler": function (response){
+            var formData = {
+                'first_name': document.getElementById("checkout_first_name").value.trim(),
+                'last_name': document.getElementById("checkout_last_name").value.trim(),
+                'company_name': document.getElementById("checkout_company_name").value.trim(),
+                'gst_number': document.getElementById("checkout_gst_number").value.trim(),
+                'zipcode': document.getElementById("checkout_zipcode").value.trim(),
+                'city': document.getElementById("checkout_city").value.trim(),
+                'street_address': document.getElementById("checkout_street_address").value.trim(),
+                'shipping_address': document.getElementById("checkout_shipping_address").value.trim(),
+                'phone': document.getElementById("checkout_phone").value.trim(),
+                'email': document.getElementById("checkout_email").value.trim(),
+                'checkout_city': document.getElementById("checkout_city").value.trim(),
+                'checkout_district': document.getElementById("checkout_district").value.trim(),
+                'checkout_division': document.getElementById("checkout_division").value.trim(),
+                'checkout_state': document.getElementById("checkout_state").value.trim(),
+            };
+
+            var queryParams = Object.keys(formData).map(key => key + '=' + encodeURIComponent(formData[key])).join('&');
+
+            // Trigger Swal alert before redirection
+            Swal.fire({
+                title: "Payment Successful!",
+                html: "Redirecting to invoice page...",
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+                willClose: () => {
+                    // Redirect to invoice page after alert closes
+                    window.location.href = `/payment-invoice/?razorpay_payment_id=${response.razorpay_payment_id}&razorpay_order_id=${response.razorpay_order_id}&razorpay_signature=${response.razorpay_signature}&${queryParams}`;
+                }
+            });
+        },
+        "theme": {
+            "color": "#004818"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+        // Redirect to payment-fail page with error details as query parameters
+        var errorDetails = {
+            code: response.error.code,
+            description: response.error.description,
+            source: response.error.source,
+            step: response.error.step,
+            reason: response.error.reason,
+            order_id: response.error.metadata.order_id,
+            payment_id: response.error.metadata.payment_id
+        };
+        var queryString = Object.keys(errorDetails).map(key => key + '=' + encodeURIComponent(errorDetails[key])).join('&');
+        window.location.href = '/payment-failed?' + queryString;
+    });
+    
+
+    rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+    });
+
+    function validateForm() {
+        var firstName = document.getElementById("checkout_first_name").value.trim();
+        var lastName = document.getElementById("checkout_last_name").value.trim();
+        var streetAddress = document.getElementById("checkout_street_address").value.trim();
+        var shippingAddress = document.getElementById("checkout_shipping_address").value.trim();
+        var gst_number = document.getElementById("checkout_gst_number").value.trim();
+        var city = document.getElementById("checkout_city").value.trim();
+        var zipcode = document.getElementById("checkout_zipcode").value.trim();
+        var phone = document.getElementById("checkout_phone").value.trim();
+        var email = document.getElementById("checkout_email").value.trim();
+        var checkout_city = document.getElementById("checkout_city").value.trim();
+        var checkout_district = document.getElementById("checkout_district").value.trim();
+        var checkout_division = document.getElementById("checkout_division").value.trim();
+        var checkout_state = document.getElementById("checkout_state").value.trim();
+    
+        if (firstName === '' || lastName === '' || streetAddress === '' || shippingAddress === '' || city === '' || zipcode === '' || phone === '' || email === '' || checkout_city === '' || checkout_district === '' || checkout_division === '' || checkout_state === '') {
+            alert('Please fill in all details.');
+            return false;
+        } else if (phone.length !== 10 || isNaN(phone)) {
+            alert('Please enter a valid 10-digit phone number.');
+            return false;
+        } else if (gst_number !== '' && gst_number.length !== 15) {
+            alert('Enter valid GST Number');
+            return false;
+        }
+    
+        return true;
+    }
+    
+    document.getElementById('rzp-button1').onclick = function(e){
+        if (!validateForm()) {
+            e.preventDefault();
+            return;
+        }
+        rzp1.open();
+    }
+
+    var pinDetailsList = [];
+
+function fetchAddressDetails(zipcode) {
+    $.ajax({
+        url: '/fetch-pin-details',
+        type: 'GET',
+        data: { 'zipcode': zipcode },
+        success: function(response) {
+            if (response.success) {
+                pinDetailsList = response.data;
+                var dropdown = $('#pin_details_dropdown');
+                dropdown.empty();
+                dropdown.append('<option value="">Select your area</option>');
+
+                pinDetailsList.forEach(function(pinDetails, index) {
+                    dropdown.append('<option value="' + index + '">' + pinDetails.Name + '</option>');
+                });
+            }
+        },
+    });
+}
+
+$('#checkout_zipcode').on('input', function() {
+    var zipcode = $(this).val().trim();
+    if (zipcode !== '') {
+        fetchAddressDetails(zipcode);
+    }
+});
+
+function updatePinDetails() {
+    var selectedIndex = $('#pin_details_dropdown').val();
+    if (selectedIndex !== "") {
+        var selectedPinDetails = pinDetailsList[selectedIndex];
+        $('#checkout_city').val(selectedPinDetails.Name);
+        $('#checkout_district').val(selectedPinDetails.District);
+        $('#checkout_division').val(selectedPinDetails.Division);
+        $('#checkout_state').val(selectedPinDetails.State);
+    }
+}
+
+    function toggleGstFields() {
+        var isChecked = document.getElementById("create_account").checked;
+        var companyFields = document.querySelectorAll(".company-fields");
+
+        if (isChecked) {
+            companyFields.forEach(function(field) {
+                field.style.display = "block";
+            });
+        } else {
+            companyFields.forEach(function(field) {
+                field.style.display = "none";
+            });
+        }
+    }
+
+    toggleGstFields();
+    document.getElementById("create_account").addEventListener("change", toggleGstFields);
+</script>
+
+
+
+<div class="mb-5 pb-xl-5"></div>
+{% endblock main %}

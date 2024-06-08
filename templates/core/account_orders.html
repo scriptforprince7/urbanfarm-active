@@ -1,0 +1,59 @@
+{% extends "partials/base.html" %} {% load static %} {% block main %}
+
+<main>
+    <div class="mb-4 pb-4"></div>
+    <section class="my-account container">
+        <h2 class="page-title">Orders</h2>
+        <div class="row">
+            <div class="col-lg-3">
+                <ul class="account-nav">
+                    <li>
+                        <a href="/dashboard" class="menu-link menu-link_us-s">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/myorders" class="menu-link menu-link_us-s menu-link_active">Orders</a>
+                    </li>
+                    <li>
+                        <a href="/cart" class="menu-link menu-link_us-s">My Cart</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'userauths:sign-out' %}" class="menu-link menu-link_us-s">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-9">
+                <div class="page-content my-account__orders-list">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Payment Status</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for o in orders %}
+                            <tr>
+                                <td>#{{o.id}}</td>
+                                <td>{{o.order_date}}</td>
+                                <td>{{o.product_status|title}}</td>
+                                {% if  o.paid_status == True%}
+                                <td><i class="fa-solid fa-check" style="color: green;"></i></td>
+                                {% else %}
+                                <td><i class="fa-solid fa-xmark" style="color: red;"></i></td>
+                                {% endif %}
+                                <td>{{o.price}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="mb-5 pb-xl-5"></div>
+{% endblock main %}

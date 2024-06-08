@@ -1,0 +1,54 @@
+{% extends "partials/base.html" %} {% load static %} {% block main %}
+
+<main>
+    <div class="full-width_padding">
+        <div class="breadcrumb mb-0 d-md-block flex-grow-1">
+          <a href="/" class="menu-link menu-link_us-s text-uppercase fw-medium"
+            >Home</a
+          >
+          <span class="breadcrumb-separator menu-link fw-medium ps-1 pe-1"
+            >&#10093;</span
+          >
+          <a href="#" class="menu-link menu-link_us-s text-uppercase fw-medium"
+            >Blog</a
+          >
+        </div>
+      </div>
+    <section class="blog-page-title mb-4 mb-xl-5">
+        <div class="title-bg">
+            <img loading="lazy" src="{% static "images/blogs-banner.jpg" %}" width="1780" height="420" alt="" />
+        </div>
+        <div class="container">
+            <h2 class="page-title">The Blog</h2>
+        </div>
+    </section>  
+    <section class="blog-page container">
+        <h2 class="d-none">The Blog</h2>
+        <div class="blog-grid row row-cols-1 row-cols-md-2">
+            {% for blog in blogs  %}
+            <div class="blog-grid__item">
+                <div class="blog-grid__item-image">
+                    <img loading="lazy" class="h-auto" src="{{blog.blog_image.url}}" width="690" height="500" alt="" />
+                </div>
+                <div class="blog-grid__item-detail">
+                    <div class="blog-grid__item-meta">
+                        <span class="blog-grid__item-meta__author">By Urban Farm</span>
+                    </div>
+                    <div class="blog-grid__item-title">
+                        <a href="{% url 'core:blog_details' blog.blog_slug %}">{{blog.blog_title}}</a>
+                    </div>
+                    <div class="blog-grid__item-content">
+                        <p>
+                            {{ blog.short_description }}
+                        </p>
+                        <a href="{% url 'core:blog_details' blog.blog_slug %}" class="readmore-link">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+
+<div class="mb-5 pb-xl-5"></div>
+{% endblock main %}

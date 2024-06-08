@@ -1,0 +1,615 @@
+{% extends "partials/base.html" %} {% load static %} {% block main %}
+
+<main>
+  <div class="mb-md-1 pb-md-3"></div>
+  <section class="product-single container product-single__type-9">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="product-single__media" data-media-type="vertical-thumbnail">
+          <div class="product-single__image">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <style>
+                  .product-image {
+                    max-width: 95%; /* Adjust this value to your preference */
+                    max-height: 100%; /* Adjust this value to your preference */
+                  }
+
+                  @media (max-width: 768px) {
+                    .product-image {
+                      max-width: 100%; /* Apply this value for smaller screens */
+                    }
+                  }
+                  
+                </style>
+                <div class="swiper-slide product-single__image-item">
+                  <img
+                    loading="lazy"
+                    class="h-auto product-image"
+                    src="{{products.image.url}}"
+                    width="674"
+                    height="674"
+                    alt=""
+                  />
+                  <a
+                    data-fancybox="gallery"
+                    href="{{products.image.url}}"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="left"
+                    title="Zoom"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <use href="#icon_zoom" />
+                    </svg>
+                  </a>
+                </div>
+                {% for image in product_images %}
+                <div class="swiper-slide product-single__image-item">
+                  <img
+                    loading="lazy"
+                    class="h-auto product-image"
+                    src="{{ image.images.url }}"
+                    width="674"
+                    height="674"
+                    alt=""
+                  />
+                  <a
+                    data-fancybox="gallery"
+                    href="{{ image.images.url }}"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="left"
+                    title="Zoom"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <use href="#icon_zoom" />
+                    </svg>
+                  </a>
+                </div>
+                {% endfor %}
+
+              </div>
+              <div class="swiper-button-prev">
+                <svg
+                  width="7"
+                  height="11"
+                  viewBox="0 0 7 11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_prev_sm" />
+                </svg>
+              </div>
+              <div class="swiper-button-next">
+                <svg
+                  width="7"
+                  height="11"
+                  viewBox="0 0 7 11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_next_sm" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="product-single__thumbnail">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide product-single__image-item">
+
+                  <img
+                    loading="lazy"
+                    class="h-auto"
+                    src="{{products.image.url}}"
+                    width="104"
+                    height="104"
+                    alt=""
+                  />
+                </div>
+                {% for image in product_images %}
+                <div class="swiper-slide product-single__image-item">
+
+                  <img
+                    loading="lazy"
+                    class="h-auto"
+                    src="{{ image.images.url }}"
+                    width="104"
+                    height="104"
+                    alt=""
+                  />
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="d-flex justify-content-between mb-4 pb-md-2">
+          <div class="breadcrumb mb-0 d-none d-md-block flex-grow-1">
+            <a
+              href="/"
+              class="menu-link menu-link_us-s text-uppercase fw-medium"
+              >Home</a
+            >
+            <span class="breadcrumb-separator menu-link fw-medium ps-1 pe-1"
+              >/</span
+            >
+            <a
+              href="#"
+              class="menu-link menu-link_us-s text-uppercase fw-medium"
+              >{{products.title}}</a
+            >
+          </div>
+          <!-- /.breadcrumb -->
+
+          <!-- /.shop-acs -->
+        </div>
+        <style>
+          .variant-name {
+              font-size: 18px;
+              color: green;
+          }
+      </style>
+      
+        <h1 class="product-single__name" id="product-title">{{products.title}} <span id="variant-name" class="variant-name"></span></h1>
+
+        <div class="product-single__rating">
+          <div class="reviews-group d-flex">
+            <svg
+              class="review-star"
+              viewBox="0 0 9 9"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="#icon_star" />
+            </svg>
+            <svg
+              class="review-star"
+              viewBox="0 0 9 9"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="#icon_star" />
+            </svg>
+            <svg
+              class="review-star"
+              viewBox="0 0 9 9"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="#icon_star" />
+            </svg>
+            <svg
+              class="review-star"
+              viewBox="0 0 9 9"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="#icon_star" />
+            </svg>
+            <svg
+              class="review-star"
+              viewBox="0 0 9 9"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="#icon_star" />
+            </svg>
+          </div>
+          {% comment %} <span class="reviews-note text-lowercase text-secondary ms-1"
+            >0 reviews
+          </span> {% endcomment %}
+        </div>
+        <div class="product-single__price">
+          <span class="current-price">₹ <span id="clicked-price" class="product-price">{{ default_price }}</span></span>
+        </div>
+        <p class="gst_rate">(Includes <span id="gst_rate">{{ gst_rate }}</span> GST)</p>
+
+        <div class="product-single__meta-info">
+          <div class="meta-item">
+            <label>SKU:</label>
+            <span>{{products.sku}}</span>
+          </div>
+          <div class="meta-item">
+            <label>HSN Code:</label>
+            <span>{{products.hsn_code}}</span>
+          </div>
+          <div class="meta-item">
+            <label>Application:</label>
+            <span>{{products.application}}</span>
+          </div>
+          <div class="meta-item">
+            <label>Packing size:</label>
+            <span>{{ default_packaging_size }}</span>
+          </div>
+          <div class="meta-item">
+            <label>Material:</label>
+            <span>{{products.material}}</span>
+          </div>
+          <div class="meta-item">
+            <label>Specifications:</label>
+            <span>{{products.specifications}}</span>
+          </div>
+        </div>
+        <form name="addtocart-form" method="post">
+
+          <style>
+            .product-section .swatch-list .selected-swatch {
+              background-color: yellow;
+            }
+          </style>
+          <div class="product-section">
+            {% for variant in product_variants %}
+            <div class="product-single__swatches">
+                <div class="product-swatch text-swatches">
+                    <label>{{ variant.title }}</label>
+                    <div class="swatch-list">
+                        {% for variant_type in product_variant_types %}
+                        {% if variant_type.product_variant == variant %}
+                        <input type="radio" name="variant_size" id="swatch-{{ variant_type.id }}" {% if forloop.first %}checked{% endif %} data-price="{{ variant_type.varient_price }}" data-gst="{{ variant_type.gst_rate }}" data-variant-type-id="{{ variant_type.id }}" />
+                        <label class="swatch js-swatch {% if forloop.first %}selected-swatch{% endif %}" for="swatch-{{ variant_type.id }}" aria-label="{{ variant_type.variant_title }}" title="{{ variant_type.variant_title }}">{{ variant_type.variant_title }}</label>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+          
+            {% for variation in product_variations %}
+            <div class="product-single__swatches">
+                <div class="product-swatch text-swatches">
+                    <label>{{ variation.variation_title }}</label>
+                    <div class="swatch-list">
+                        {% for variant_type in product_variation_types %}
+                        {% if variant_type.product_variation == variation %}
+                        <input type="radio" name="variation_size" id="swatch-{{ variant_type.id }}" {% if forloop.first %}checked{% endif %} data-variation-type-id="{{ variant_type.id }}" />
+                        <label class="swatch js-swatch {% if forloop.first %}selected-swatch{% endif %}" for="swatch-{{ variant_type.id }}" aria-label="{{ variant_type.variation_title }}" title="{{ variant_type.variation_title }}">{{ variant_type.variation_title }}</label>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+          <div class="product-single__addtocart">
+            <div class="qty-control position-relative">
+              <input
+                type="number"
+                name="quantity"
+                value="1"
+                id="product-quantity-{{products.pid}}"
+                min="1"
+                class="qty-control__number text-center product-quantity-{{products.pid}}"
+              />
+              <div class="qty-control__reduce">-</div>
+              <div class="qty-control__increase">+</div>
+            </div>
+            <!-- .qty-control -->
+            <input type="hidden" value="{{products.pid}}" class="product-id">
+            <input type="hidden" value="{{products.pid}}" class="product-id-{{products.pid}}">
+            <input type="hidden" value="{{products.title}} - (selected variant type or variation type)" class="product-title-{{products.pid}}" id="product-title-hidden">
+            <input type="hidden" value="{{default_price}}" class="product-price-{{products.pid}}">
+            <input type="hidden" value="{{price_wo_gst}}" class="product-price-wo-gst-{{products.pid}}">
+            <input type="hidden" value="{{gst_rate}}" class="gst_rate-{{products.pid}}">
+            <input type="hidden" value="{{products.sku}}" class="product-sku-{{products.pid}}">
+            <input type="hidden" value="{{products.image.url}}" class="product-image-{{products.pid}}">
+            <input type="hidden" id="variant-id-hidden-{{ products.pid }}" value="None">
+            <input type="hidden" id="variation-id-hidden" value="">
+            <button
+                type="submit"
+                class="btn btn-primary btn-addtocart js-open-aside add-to-cart-btn"
+                id="add-to-cart-btn"
+                data-index="{{products.pid}}"
+                data-aside="cartDrawer"
+            >
+                Add to Cart
+            </button>
+          </div>
+          <div class="product-single__meta-info">
+            <div class="meta-item">
+              <label>Category:</label>
+              <span>{{related_maincategory}}</span>
+          </div>
+            <div class="meta-item">
+                <label>Estimated Delivery:</label>
+                <span>5-10 days </span>
+            </div>
+            <div class="meta-item">
+                <label>Shipping & Returns:</label>
+                <span>Free Shipping</span>
+            </div>
+            <div class="meta-item">
+                <label>Tags:</label>
+                <span>grow media, plants, go green, hydroponic</span>
+            </div>
+        </div>
+        </form>
+
+      </div>
+    </div>
+    <div class="product-single__details-list">
+      <h2 class="product-single__details-list__title">Description</h2>
+      <div class="product-single__details-list__content">
+        <div class="product-single__description">
+          <h3 class="block-title mb-4">
+              Shop <span style="color:green;">{{products.title}}</span>  at the Urban Farm
+          </h3>
+          <p class="content">
+            Looking for the perfect growing medium for your hydroponic system? Look no further than our {{products.title}}. Specially designed for optimal plant growth, these discs offer a multitude of benefits for both seasoned growers and beginners alike.
+          </p>
+          <div class="row">
+              <div class="col-lg-6">
+                  <h3 class="block-title">Why Choose {{products.title}}?</h3>
+                  <ul class="list text-list">
+                      <li>Crafted from premium-quality coconut coir, these discs are environmentally friendly and sustainable, making them an excellent choice for eco-conscious growers.</li>
+                      <li>
+                        The unique fibrous structure of cocopith ensures excellent water retention, providing your plants with a consistent moisture level essential for healthy growth.
+                      </li>
+                      <li>Cocopith discs are renowned for their excellent aeration properties, promoting robust root development and preventing the risk of root rot.</li>
+                  </ul>
+              </div>
+              <div class="col-lg-6">
+                  <h3 class="block-title">The Ideal Hydroponic Growing Medium</h3>
+                  <ol class="list text-list">
+                      <li>Maintaining the right pH level is crucial for plant health. Our {{products.title}} maintains a neutral pH, ensuring optimal nutrient uptake by your plants.</li>
+                      <li>
+                        These discs are simple and hassle-free to use. Just hydrate them with water, and they're ready to support your plants throughout their growth cycle.
+                      </li>
+                      <li>With a diameter of 30 mm, these discs are perfectly sized for a wide range of plant varieties, providing ample space for root expansion.</li>
+                  </ol>
+              </div>
+          </div>
+          <h3 class="block-title mb-0">Experience the Difference with {{products.title}}</h3>
+          <p class="content">Elevate your hydroponic gardening experience with our {{products.title}}. With its exceptional quality and performance, it's the ultimate choice for achieving bountiful harvests and flourishing crops. Try it today and witness the difference it makes in your garden!</p>
+      </div>
+        
+      </div>
+    </div>
+  </section>
+  <section class="products-carousel container">
+    <h2 class="h3 text-uppercase mb-4 pb-xl-2 mb-xl-4">
+        Related <strong>Products</strong>
+    </h2>
+
+    <div id="related_products" class="position-relative">
+        <div class="swiper-container js-swiper-slider" data-settings='{
+        "autoplay": false,
+        "slidesPerView": 4,
+        "slidesPerGroup": 4,
+        "effect": "none",
+        "loop": true,
+        "pagination": {
+          "el": "#related_products .products-pagination",
+          "type": "bullets",
+          "clickable": true
+        },
+        "navigation": {
+          "nextEl": "#related_products .products-carousel__next",
+          "prevEl": "#related_products .products-carousel__prev"
+        },
+        "breakpoints": {
+          "320": {
+            "slidesPerView": 2,
+            "slidesPerGroup": 2,
+            "spaceBetween": 14
+          },
+          "768": {
+            "slidesPerView": 3,
+            "slidesPerGroup": 3,
+            "spaceBetween": 24
+          },
+          "992": {
+            "slidesPerView": 4,
+            "slidesPerGroup": 4,
+            "spaceBetween": 30
+          }
+        }
+      }'>
+            <div class="swiper-wrapper">
+              {% for related_product in related_products %}
+                <div class="swiper-slide product-card">
+                    <div class="pc__img-wrapper">
+                        <a href="{% url 'core:product_new' related_product.title %}">
+                            <img loading="lazy" src="{{related_product.image.url}}" width="330" height="400"
+                                alt="{{related_product.title}}" class="pc__img" />
+                            <img loading="lazy" src="{{related_product.image.url}}" width="330" height="400"
+                                alt="{{related_product.title}}" class="pc__img pc__img-second" />
+                        </a>
+                       <a href="{% url 'core:product_new' related_product.title %}"> <button
+                            class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium"
+                            data-aside="cartDrawer" title="Quick View">
+                            Quick View
+                        </button>
+                      </a>
+                    </div>
+
+                    <div class="pc__info position-relative">
+                        <p class="pc__category">{{related_maincategory}}</p>
+                        <h6 class="pc__title">
+                            <a href="{% url 'core:product_new' related_product.title %}">{{related_product.title}}</a>
+                        </h6>
+                        <div class="product-card__price d-flex">
+                            <span class="money price">₹ {{related_product.price}}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div
+            class="products-carousel__prev position-absolute top-50 d-flex align-items-center justify-content-center">
+            <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                <use href="#icon_prev_md" />
+            </svg>
+        </div>
+        <div
+            class="products-carousel__next position-absolute top-50 d-flex align-items-center justify-content-center">
+            <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                <use href="#icon_next_md" />
+            </svg>
+        </div>
+
+        <div class="products-pagination mt-4 mb-5 d-flex align-items-center justify-content-center"></div>
+    </div>
+</section>
+  <!-- /.products-carousel container -->
+</main>
+<div class="mb-5 pb-xl-5"></div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var radioButtons = document.querySelectorAll('input[name="variant_size"], input[name="variation_size"]');
+    radioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('click', updatePrice);
+    });
+
+    // Calculate and display default price and update title for the default selected variant type
+    updatePrice();
+});
+
+function calculateDefaultPrice() {
+    var hasVariants = {{ has_variants|lower }};
+    if (hasVariants) {
+        var selectedVariantType = document.querySelector('input[name="variant_size"]:checked');
+        var price = parseFloat(selectedVariantType.getAttribute('data-price'));
+        var gstRate = parseFloat(selectedVariantType.getAttribute('data-gst'));
+
+        var totalPrice = price + (price * (gstRate / 100));
+        document.getElementById('clicked-price').textContent = totalPrice.toFixed(2);
+    }
+}
+
+function updatePrice() {
+    var hasVariants = {{ has_variants|lower }};
+    var hasVariations = {{ has_variations|lower }};
+    var productTitle = document.getElementById('product-title');
+    var variantName = document.getElementById('variant-name');
+    var hiddenProductTitle = document.querySelector('.product-title-{{ products.pid }}');
+    var productPid = '{{ products.pid }}'; // Ensure this is the actual product PID
+    var variantIdHidden = document.getElementById('variant-id-hidden-' + productPid);
+    var variationIdHidden = document.getElementById('variation-id-hidden');
+
+    if (hasVariants && hasVariations) {
+        var selectedVariantType = document.querySelector('input[name="variant_size"]:checked');
+        var selectedVariationType = document.querySelector('input[name="variation_size"]:checked');
+
+        if (!selectedVariantType) {
+            selectedVariantType = document.querySelector('input[name="variant_size"]');
+            selectedVariantType.checked = true;
+        }
+        if (!selectedVariationType) {
+            selectedVariationType = document.querySelector('input[name="variation_size"]');
+            selectedVariationType.checked = true;
+        }
+
+        var selectedVariantTypeId = selectedVariantType.getAttribute('data-variant-type-id');
+        var selectedVariationTypeId = selectedVariationType.getAttribute('data-variation-type-id');
+
+        if (variantIdHidden) {
+            variantIdHidden.value = selectedVariantTypeId;
+        } else {
+            variantIdHidden = { value: null };
+        }
+
+        if (variationIdHidden.value === "") {
+            variationIdHidden.value = 'Undefined';
+        } else {
+            variationIdHidden.value = selectedVariationTypeId;
+        }
+
+        var variationPrices = {};
+        {% for variation_type, prices in variation_prices %}
+        variationPrices["{{ variation_type.id }}"] = {};
+        {% for price in prices %}
+        variationPrices["{{ variation_type.id }}"]["{{ price.product_variant_type.id }}"] = {
+            price: {{ price.varient_type_price }},
+            gstRate: "{{ price.gst_rate }}"
+        };
+        {% endfor %}
+        {% endfor %}
+
+        var priceObject = variationPrices[selectedVariationTypeId][selectedVariantTypeId];
+        var price = priceObject.price;
+        var gstRate = priceObject.gstRate;
+
+        var basePrice = price;
+        var totalPrice = price * (1 + (parseFloat(gstRate) / 100));
+        document.getElementById('clicked-price').textContent = totalPrice.toFixed(2);
+
+        var variantText = selectedVariantType.nextElementSibling.textContent;
+        var variationText = selectedVariationType.nextElementSibling.textContent;
+        variantName.textContent = '(' + variantText + ', ' + variationText + ')';
+        hiddenProductTitle.value = '{{products.title}} - (' + variantText + ', ' + variationText + ')';
+    } else if (hasVariants) {
+        var selectedVariantType = document.querySelector('input[name="variant_size"]:checked');
+
+        if (!selectedVariantType) {
+            selectedVariantType = document.querySelector('input[name="variant_size"]');
+            selectedVariantType.checked = true;
+        }
+
+        var selectedVariantTypeId = selectedVariantType.getAttribute('data-variant-type-id');
+        if (variantIdHidden) {
+            variantIdHidden.value = selectedVariantTypeId;
+        } else {
+            variantIdHidden = { value: null };
+        }
+
+        var price = parseFloat(selectedVariantType.getAttribute('data-price'));
+        var gstRate = parseFloat(selectedVariantType.getAttribute('data-gst'));
+
+        var basePrice = price;
+        var totalPrice = price + (price * (gstRate / 100));
+        document.getElementById('clicked-price').textContent = totalPrice.toFixed(2);
+        totalPrice = parseFloat(document.getElementById('clicked-price').textContent);
+
+        var variantText = selectedVariantType.nextElementSibling.textContent;
+        variantName.textContent = '(' + variantText + ')';
+        hiddenProductTitle.value = '{{products.title}} - (' + variantText + ')';
+    } else {
+        document.getElementById('clicked-price').textContent = '{{default_price}}';
+        var totalPrice = parseFloat('{{ default_price }}');
+        var basePrice = {{price_wo_gst}};
+
+        variantName.textContent = '';
+        hiddenProductTitle.value = '{{products.title}}';
+    }
+
+    document.querySelector('.product-price-{{ products.pid }}').value = totalPrice.toFixed(2);
+    document.querySelector('.product-price-wo-gst-{{ products.pid }}').value = basePrice.toFixed(2);
+
+    updateSwatchSelection();
+}
+
+function updateSwatchSelection() {
+    var selectedVariantType = document.querySelector('input[name="variant_size"]:checked');
+    var selectedVariationType = document.querySelector('input[name="variation_size"]:checked');
+    var selectedSwatches = document.querySelectorAll('.js-swatch.selected-swatch');
+
+    selectedSwatches.forEach(function(swatch) {
+        swatch.classList.remove('selected-swatch');
+    });
+
+    if (selectedVariantType) {
+        selectedVariantType.nextElementSibling.classList.add('selected-swatch');
+    }
+
+    if (selectedVariationType) {
+        selectedVariationType.nextElementSibling.classList.add('selected-swatch');
+    }
+}
+
+</script>
+
+
+{% endblock main %}

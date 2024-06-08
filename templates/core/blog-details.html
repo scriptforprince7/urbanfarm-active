@@ -1,0 +1,27 @@
+{% extends "partials/base.html" %} {% load static %} {% block main %}
+
+<main>
+    <div class="mb-4 pb-4"></div>
+    <section class="blog-page blog-single container">
+        <div class="mw-930">
+            <h2 class="page-title">{{blog_detail.blog_title}}</h2>
+            <div class="blog-single__item-meta">
+                <span class="blog-single__item-meta__author">By Urban Farm</span>
+            </div>
+        </div>
+        <div class="blog-single__item-content">
+            <p>
+                <img loading="lazy" class="w-100 h-auto d-block" src="{{blog_detail.blog_image.url}}" width="1410"
+                    height="550" alt="" />
+            </p>
+            <div class="mw-930">
+                <p>
+                    {{ blog_detail.blog_description| safe }}
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="mb-5 pb-xl-5"></div>
+{% endblock main %}

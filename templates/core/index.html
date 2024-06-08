@@ -1,0 +1,895 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block main %}
+<main>
+    <section class="swiper-container js-swiper-slider slideshow type3 slideshow-navigation-white-sm" data-settings='{
+    "autoplay": {
+      "delay": 5000
+    },
+    "navigation": {
+      "nextEl": ".slideshow__next",
+      "prevEl": ".slideshow__prev"
+    },
+    "pagination": {
+      "el": ".slideshow-pagination",
+      "type": "bullets",
+      "clickable": true
+    },
+    "slidesPerView": 1,
+    "effect": "fade",
+    "loop": true
+  }'>
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="overflow-hidden position-relative h-100">
+                    <div class="slideshow-bg" style="background-color: #fbab04;">
+                        <!--<img loading="lazy" src="{% static 'images/banner1/1.jpg' %}" width="1903" height="560" alt="Pattern"
+            class="slideshow-bg__img object-fit-cover"> -->
+                    </div>
+                    <div class="position-absolute left-0 right-0 bottom-0 top-0 container">
+                        <div class="slideshow-character position-absolute position-right-center mx-xl-5">
+                            <img loading="lazy" src="{% static "images/home/demo12/slideshow-character1.png" %}" width="518"
+                                height="329" alt="Woman Fashion 1"
+                                class="slideshow-character__img animate animate_fade animate_btt animate_delay-9 w-auto h-auto">
+                        </div>
+                    </div>
+                    <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
+
+                        <div class="row">
+                            <div class="col-6">
+                            </div>
+                            <div class="col-6">
+
+                                {% comment %} <div class="noo-atributes">
+                                     <img width="494" height="618" src="{% static 'images/image-01.png' %}" alt="" /> 
+                                    <div class="noo-atributes-item noo-atributes-item1">
+                                        <div class="noo-atributes-hover">
+                                            <div class="noo-atributes-content">
+                                                <strong style="color:#004818 !important">Hydroponic Process</strong>
+                                                <p>Maecenas tristique gravida, odio et sagi ttis justo</p>
+                                            </div>
+                                        </div>
+                                        <span class="eff">
+                                            <span class="eff1"></span>
+                                            <span class="eff2"></span>
+                                            <img width="24" src="{% static "images/leaf.svg" %}" alt="" />
+                                        </span>
+                                    </div>
+                                    <div class="noo-atributes-item noo-atributes-item2">
+                                        <div class="noo-atributes-hover">
+                                            <div class="noo-atributes-content">
+                                                <strong style="color:#004818 !important">Hydroponic Process</strong>
+                                                <p>Maecenas tristique gravida, odio et sagi ttis justo</p>
+                                            </div>
+                                        </div>
+                                        <span class="eff">
+                                            <span class="eff1"></span>
+                                            <span class="eff2"></span>
+                                            <img width="24" src="{% static 'images/leaf.svg' %}" alt="" />
+                                        </span>
+                                    </div>
+                                    <div class="noo-atributes-item noo-atributes-item3 orange">
+                                        <div class="noo-atributes-hover">
+                                            <div class="noo-atributes-content">
+                                                <strong style="color:#004818 !important">Hydroponic Process</strong>
+                                                <p>Maecenas tristique gravida, odio et sagi ttis justo</p>
+                                            </div>
+                                        </div>
+                                        <span class="eff">
+                                            <span class="eff1"></span>
+                                            <span class="eff2"></span>
+                                            <img width="24" src="{% static "images/leaf.svg" %}" alt="" />
+                                        </span>
+                                    </div>
+                                </div> {% endcomment %}
+                            </div>
+                        </div>
+
+                        <h6
+                            class="text_dash text-uppercase fs-base fw-medium animate animate_fade animate_btt animate_delay-3 theme-color">
+                            Shop Our Freshest</h6>
+                        <h2 class="fs-50 fw-bold mb-2 mb-lg-3 animate animate_fade animate_btt animate_delay-5 lh-1"
+                            style="color: #fff !important;">
+                            Grow Beyond Soil: <br> Elevate Your Greens with </h2>
+                        <h2 class="fs-50 fw-bold mb-2 mb-lg-4 animate animate_fade animate_btt animate_delay-5 lh-1"
+                            style="color: #074e37 !important;">
+                            Hydroponic Expertise!</h2>
+                        <a href="/shop-category"
+                            class="btn btn-outline-primary border-0 fs-base text-uppercase fw-medium animate animate_fade animate_btt animate_delay-7 btn-551">Shop
+                            Now</a>
+                    </div>
+                </div>
+            </div><!-- /.slideshow-item -->
+            <div class="swiper-slide">
+                <div class="overflow-hidden position-relative h-100">
+                    <div class="slideshow-bg">
+                        <img loading="lazy" src="{% static "images/banner1/1.jpg" %}" width="1903" height="560" alt="Pattern"
+                            class="slideshow-bg__img object-fit-cover">
+                    </div>
+                    <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
+                    </div>
+                </div>
+            </div><!-- /.slideshow-item -->
+            <div class="swiper-slide">
+                <div class="overflow-hidden position-relative h-100">
+                    <div class="slideshow-bg">
+                        <img loading="lazy" src="{% static "images/banner1/2.jpg" %}" width="1903" height="560" alt="Pattern"
+                            class="slideshow-bg__img object-fit-cover">
+                    </div>
+                    <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
+                    </div>
+                </div>
+            </div><!-- /.slideshow-item -->
+
+            <div class="swiper-slide">
+                <div class="overflow-hidden position-relative h-100">
+                    <div class="slideshow-bg">
+                        <img loading="lazy" src="{% static "images/banner1/3.jpg" %}" width="1903" height="560" alt="Pattern"
+                            class="slideshow-bg__img object-fit-cover">
+                    </div>
+
+                    <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
+                    </div>
+                </div>
+            </div><!-- /.slideshow-item -->
+
+            <div class="swiper-slide">
+                <div class="overflow-hidden position-relative h-100">
+                    <div class="slideshow-bg">
+                        <img loading="lazy" src="{% static "images/banner1/4.jpg" %}" width="1903" height="560" alt="Pattern"
+                            class="slideshow-bg__img object-fit-cover">
+                    </div>
+
+                    <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
+                    </div>
+                </div>
+            </div><!-- /.slideshow-item -->
+
+            <div class="swiper-slide">
+                <div class="overflow-hidden position-relative h-100">
+                    <div class="slideshow-bg">
+                        <img loading="lazy" src="{% static "images/banner1/5.jpg" %}" width="1903" height="560" alt="Pattern"
+                            class="slideshow-bg__img object-fit-cover">
+                    </div>
+
+                    <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
+                    </div>
+                </div>
+            </div><!-- /.slideshow-item -->
+
+        </div>
+
+        <div class="slideshow__prev position-absolute top-50 d-flex align-items-center justify-content-center">
+            <svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+                <use href="#icon_prev_sm" />
+            </svg>
+        </div>
+        <div class="slideshow__next position-absolute top-50 d-flex align-items-center justify-content-center">
+            <svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+                <use href="#icon_next_sm" />
+            </svg>
+        </div>
+
+        <div class="container">
+            <div class="slideshow-pagination d-flex align-items-center position-absolute bottom-0 mb-5"></div>
+            <!-- /.products-pagination -->
+        </div>
+    </section>
+
+    <style>
+    .offer-banner {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    </style>
+
+
+    <section class="image-banner custom" style="background-color: #648670 !important;">
+        <div class="image-banner__content container py-3">
+            <div class="offer-banner">
+                <h3 class="text-white fw-bold customm">Explore the latest discounts and promotions. Shop now for unbeatable
+                    deals!
+                </h3>
+                <button class="btn btn-outline-primary border-0 fs-base text-uppercase fw-medium btn-55">
+                    <a href="/shop-category"> <span>Shop Now</span></a>
+                </button>
+            </div>
+        </div>
+    </section>
+    <div class="container mw-1620 bg-white border-radius-10">
+        <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
+        <section class="category-carousel container custom">
+            <h2 class="section-title text-uppercase mb-3 pb-xl-2 mb-xl-4">Shop by <strong
+                    style="color:#004818 !important">Category</strong></h2>
+            <hr>
+            <div class="position-relative">
+                <div class="swiper-container js-swiper-slider" data-settings='{
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": 8,
+          "slidesPerGroup": 1,
+          "effect": "none",
+          "loop": false,
+          "navigation": {
+            "nextEl": ".products-carousel__next-1",
+            "prevEl": ".products-carousel__prev-1"
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 2,
+              "slidesPerGroup": 2,
+              "spaceBetween": 15
+            },
+            "768": {
+              "slidesPerView": 4,
+              "slidesPerGroup": 4,
+              "spaceBetween": 30
+            },
+            "992": {
+              "slidesPerView": 6,
+              "slidesPerGroup": 1,
+              "spaceBetween": 45,
+              "pagination": false
+            },
+            "1200": {
+              "slidesPerView": 8,
+              "slidesPerGroup": 1,
+              "spaceBetween": 60,
+              "pagination": false
+            }
+          }
+        }'>
+                    <div class="swiper-wrapper">
+                        {% for main in main_cat %}
+                        <a href="{% url 'core:category' main.main_title %}" class="category-page">
+                            <div class="swiper-slide">
+                                <img loading="lazy" class="w-100 h-auto mb-3" src="{{main.image.url}}"
+                                    alt="">
+                                <div class="text-center">
+                                    <a href="/category" class="menu-link fw-medium">
+                                       {{main.main_title}}
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                       
+                    </div>
+                </div>
+
+                <div
+                    class="products-carousel__prev products-carousel__prev-1 position-absolute top-50 d-flex align-items-center justify-content-center">
+                    <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_prev_md" />
+                    </svg>
+                </div><!-- /.products-carousel__prev -->
+                <div
+                    class="products-carousel__next products-carousel__next-1 position-absolute top-50 d-flex align-items-center justify-content-center">
+                    <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_next_md" />
+                    </svg>
+                </div><!-- /.products-carousel__next -->
+            </div><!-- /.position-relative -->
+        </section>
+
+        <div class="mb-4 mb-xl-5 pt-1 pb-4"></div>
+
+
+        <section class="hot-deals container">
+            <h2 class="section-title text-uppercase mb-3 pb-xl-3 mb-xl-4">Your <strong
+                    style="color:#004818 !important">Best
+                    Picks</strong></h2>
+            <div class="row">
+                <div
+                    class="col-md-6 col-lg-4 col-xl-20per d-flex align-items-center flex-column justify-content-center py-4 align-items-md-start">
+                    <h2>Summer Sale</h2>
+                    <h2 class="fw-bold">Up to 10% Off</h2>
+
+                    <div class="position-relative d-flex align-items-center text-center pt-xxl-4 js-countdown mb-3"
+                        data-date="18-3-2024" data-time="06:50">
+                        <div class="day countdown-unit">
+                            <span class="countdown-num d-block"></span>
+                            <span class="countdown-word text-uppercase text-secondary">Days</span>
+                        </div>
+
+                        <div class="hour countdown-unit">
+                            <span class="countdown-num d-block"></span>
+                            <span class="countdown-word text-uppercase text-secondary">Hours</span>
+                        </div>
+
+                        <div class="min countdown-unit">
+                            <span class="countdown-num d-block"></span>
+                            <span class="countdown-word text-uppercase text-secondary">Mins</span>
+                        </div>
+
+                        <div class="sec countdown-unit">
+                            <span class="countdown-num d-block"></span>
+                            <span class="countdown-word text-uppercase text-secondary">Sec</span>
+                        </div>
+                    </div>
+
+                    <a href="/shop-category" class="btn-link default-underline text-uppercase fw-medium mt-3">View All</a>
+                </div>
+                <div class="col-md-6 col-lg-8 col-xl-80per">
+                    <div class="position-relative">
+                        <div class="swiper-container js-swiper-slider" data-settings='{
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": 4,
+              "slidesPerGroup": 4,
+              "effect": "none",
+              "loop": false,
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "slidesPerGroup": 2,
+                  "spaceBetween": 14
+                },
+                "768": {
+                  "slidesPerView": 2,
+                  "slidesPerGroup": 3,
+                  "spaceBetween": 24
+                },
+                "992": {
+                  "slidesPerView": 3,
+                  "slidesPerGroup": 1,
+                  "spaceBetween": 30,
+                  "pagination": false
+                },
+                "1200": {
+                  "slidesPerView": 4,
+                  "slidesPerGroup": 1,
+                  "spaceBetween": 30,
+                  "pagination": false
+                }
+              }
+            }'>
+                            <div class="swiper-wrapper">
+                                {% for best_picks in summer_sale %}
+                                <div class="swiper-slide product-card product-card_style3">
+                                    <div class="pc__img-wrapper">
+                                        <a href="{% url 'core:product_new' best_picks.title %}">
+                                            <img loading="lazy"
+                                                src="{{best_picks.image.url}}"
+                                                width="258" height="313" alt="NFT Channel" class="pc__img">
+                                            <img loading="lazy"
+                                                src="{{best_picks.image.url}}"
+                                                width="258" height="313" alt="NFT Channel"
+                                                class="pc__img pc__img-second">
+                                        </a>
+                                    </div>
+                                    <style>
+                                        .modif {
+                                            font-size: 15px;
+                                            color: green;
+                                        }
+                                    </style>
+
+                                    <div class="pc__info position-relative">
+                                        <h6 class="pc__title"><a href="{% url 'core:product_new' best_picks.title %}">{{best_picks.title}}<span class="modif">{% if best_picks.first_variant_type_title %} - ({{ best_picks.first_variant_type_title }}){% endif %}</span></a></h6>
+                                        <div class="product-card__price d-flex">
+                                            <span class="money price text-secondary">₹ {{best_picks.gst_inclusive_price}}</span>
+                                        </div>
+
+                                        <div
+                                            class="anim_appear-bottom position-absolute bottom-0 start-0 d-none d-sm-flex align-items-center bg-body">
+
+                                            <input type="hidden" value="{{best_picks.pid}}" class="product-id">
+
+                                            <input type="hidden" value="{{best_picks.pid}}" id="product-quantity-{{products.pid}}" class="product-id-{{best_picks.pid}}">
+
+                                            <input type="hidden" value="1" class="product-quantity-{{best_picks.pid}}">
+
+                                            <input type="hidden" value="{{best_picks.title}}{% if best_picks.first_variant_type_title %} - ({{ best_picks.first_variant_type_title }}){% endif %}" class="product-title-{{best_picks.pid}}">
+
+                                            <input type="hidden" value="{{best_picks.gst_inclusive_price}}" class="product-price-{{best_picks.pid}}">
+
+                                           
+                                            {% with price_wo_gst=best_picks.variant_price|default:best_picks.price %}
+                                            <input type="hidden" value="{{ price_wo_gst }}" class="product-price-wo-gst-{{ best_picks.pid }}">
+                                            {% endwith %}
+                                           
+
+                                            {% if best_picks.productvarient_set.exists %}
+                                            {% with first_variant=best_picks.productvarient_set.first %}
+                                            <input type="hidden" value="{{ first_variant.productvarianttypes_set.first.gst_rate }}" class="gst_rate-{{ best_picks.pid }}">
+                                            {% endwith %}
+                                            {% else %}
+                                            <input type="hidden" value="{{ best_picks.gst_rate }}" class="gst_rate-{{ best_picks.pid }}">
+                                            {% endif %}
+
+                                            <input type="hidden" value="{{best_picks.sku}}" class="product-sku-{{best_picks.pid}}">
+
+                                            <input type="hidden" value="{{best_picks.image.url}}" class="product-image-{{best_picks.pid}}">
+
+                                            <input type="hidden" id="variant-id-hidden-{{ best_picks.pid }}" value="{{ best_picks.first_variant_type_id }}">
+
+                                            <button
+                                                class="btn-link btn-link_lg me-4 text-uppercase fw-medium js-add-cart js-open-aside custom add-to-cart-btn"
+                                                id="add-to-cart-btn"
+                                                data-index="{{best_picks.pid}}"
+                                                data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
+
+                                           <a href="{% url 'core:product_new' best_picks.title %}"><button
+                                            class="btn-link btn-link_lg me-4 text-uppercase fw-medium js-quick-view"
+                                            title="Quick view">
+                                            <span class="d-none d-xxl-block">Quick View</span>
+                                            <span class="d-block d-xxl-none"><svg width="18" height="18"
+                                                    viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <use href="#icon_view" />
+                                                </svg></span>
+                                        </button></a> 
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div><!-- /.swiper-wrapper -->
+                        </div><!-- /.swiper-container js-swiper-slider -->
+                    </div><!-- /.position-relative -->
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <div class="mb-4 mb-xl-5 pt-1 pb-4"></div>
+
+    <!-- <div class="mb-3 mb-xl-5 pt-1 pb-4"></div> -->
+    <section class="products-grid container">
+        <h2 class="section-title text-uppercase mb-1 mb-md-3 pb-xl-2 mb-xl-4">New
+            <strong style="color:#004818 !important">Arrivals</strong>
+        </h2>
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+            {% for new_arrivals in new_arrival %}
+            <div class="product-card-wrapper overflow-hidden">
+                <div class="product-card product-card_style6 hover-container mb-3 mb-md-4">
+                    <div class="pc__img-wrapper">
+                        <a href="{% url 'core:product_new' new_arrivals.title %}">
+                            <img loading="lazy" src="{{new_arrivals.image.url}}" width="330" height="400"
+                                alt="NFT Channel" class="pc__img">
+                            <img loading="lazy" src="{{new_arrivals.image.url}}" width="330" height="400"
+                                alt="NFT Channel" class="pc__img pc__img-second">
+                        </a>
+                    </div>
+
+                    <div class="pc__info position-relative bg-body">
+                        <div class="position-relative">
+                            <p class="pc__category">
+                              {% for category in new_arrival_main_categories %}
+                              {{ category.main_title }}
+                              {% if not forloop.last %}, {% endif %}
+                          {% endfor %}
+                            </p>
+                            <h6 class="pc__title"><a href="{% url 'core:product_new' new_arrivals.title %}">{{new_arrivals.title}}<span class="modif">{% if new_arrivals.first_variant_type_title %} - ({{ new_arrivals.first_variant_type_title }}){% endif %}</span></a></h6>
+                            <div class="product-card__price d-flex">
+                                <span class="money price">₹{{new_arrivals.gst_inclusive_price}}</span>
+                            </div>
+
+                            <div class="d-flex align-items-center hover__content position-relative mt-3 mt-sm-0">
+                              <input type="hidden" value="{{new_arrivals.pid}}" class="product-id">
+
+                              <input type="hidden" value="{{new_arrivals.pid}}" id="product-quantity-{{products.pid}}" class="product-id-{{new_arrivals.pid}}">
+
+                              <input type="hidden" value="1" class="product-quantity-{{new_arrivals.pid}}">
+
+                              <input type="hidden" value="{{new_arrivals.title}}{% if product.first_variant_type_title %} - ({{ new_arrivals.first_variant_type_title }}){% endif %}" class="product-title-{{new_arrivals.pid}}">
+
+                              <input type="hidden" value="{{new_arrivals.gst_inclusive_price}}" class="product-price-{{new_arrivals.pid}}">
+
+                             
+                              {% with price_wo_gst=new_arrivals.variant_price|default:new_arrivals.price %}
+                              <input type="hidden" value="{{ price_wo_gst }}" class="product-price-wo-gst-{{ new_arrivals.pid }}">
+                              {% endwith %}
+                             
+
+                              {% if new_arrivals.productvarient_set.exists %}
+                              {% with first_variant=new_arrivals.productvarient_set.first %}
+                              <input type="hidden" value="{{ first_variant.productvarianttypes_set.first.gst_rate }}" class="gst_rate-{{ new_arrivals.pid }}">
+                              {% endwith %}
+                              {% else %}
+                              <input type="hidden" value="{{ new_arrivals.gst_rate }}" class="gst_rate-{{ new_arrivals.pid }}">
+                              {% endif %}
+
+                              <input type="hidden" value="{{new_arrivals.sku}}" class="product-sku-{{new_arrivals.pid}}">
+
+                              <input type="hidden" value="{{new_arrivals.image.url}}" class="product-image-{{new_arrivals.pid}}">
+
+                              <input type="hidden" id="variant-id-hidden-{{ new_arrivals.pid }}" value="{{ new_arrivals.first_variant_type_id }}">
+                              <button
+                              class="btn-link btn-link_lg me-4 text-uppercase fw-medium js-add-cart js-open-aside custom add-to-cart-btn"
+                              id="add-to-cart-btn"
+                              data-index="{{new_arrivals.pid}}"
+                              data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div><!-- /.row -->
+        <div class="text-center mt-2">
+            <a class="btn-link btn-link_lg default-underline text-uppercase fw-medium" href="/shop-category">See
+                All
+                Products</a>
+        </div>
+    </section>
+
+
+    <div class="mb-5 pb-4"></div>
+
+    <style>
+      /* Apply basic styles to the video container */
+      .video-containerr {
+        max-width: 90%; /* Adjust this value to your desired maximum width */
+        margin: 0 auto; /* Center the container horizontally */
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 2rem;
+      }
+      
+      /* Add additional mobile-responsive styles as needed */
+      @media (max-width: 768px) {
+        /* For screens with a width of 768px or less */
+        .video-containerr {
+        max-width: 100%; /* Reset the maximum width for smaller screens if needed */
+        }
+      }
+      </style>
+    
+      <div class="video-containerr my-5"  style="box-shadow: 0px 15px 25px yellow;">
+       <a href="/shop-category"><img src="{% static 'images/urban-farm-banner-image.jpg' %}" alt=""></a> 
+      </div>
+      <div class="mb-5 pb-4"></div>
+
+      <section class="product-single container product-single__type-9 mt-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <br>
+                <h2 class="text-uppercase">HYDROPONIC NUTRIENT FILM: <br> <strong style="color:#004818 !important">TECHNIQUE INTERACTIVE INFORGRAPHIC</strong></h2>
+                <p style="text-align: justify;">
+                    <br>
+                    The Nutrient Film Technique (NFT) is a hydroponic system used for growing plants without soil, where nutrient-rich water flows continuously over the plant roots in a thin film. In an NFT system, plants are typically grown in channels or gullies, with their roots suspended in the flowing nutrient solution.Benefits of NFT systems include efficient water and nutrient usage, better aeration for roots, and the ability to grow plants in a controlled environment without soil. However, they require careful monitoring of pH, nutrient levels, and water flow to ensure optimal plant growth.   <br>
+                    <br>
+                </p>
+            </div>
+            <div class="col-lg-8">
+                <section class="lookbook-products position-relative">
+                    <img class="w-100 h-auto" loading="lazy" src="{% static 'images/home1/lookbook.png' %}" width="50%"
+                        height="50%" alt="" style="box-shadow: 0px 25px 40px #8DC743;">
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="container">
+
+
+        <h2 class="section-title text-uppercase text-center mb-1 mb-md-3 pb-xl-2 mb-xl-4">HYDROPONIC NUTRIENT FILM: 
+            <strong style="color:#004818 !important">TECHNIQUE INTERACTIVE INFORGRAPHIC</strong>
+        </h2>
+        <p class="text-center" style="text-align: justify;">
+            The Nutrient Film Technique (NFT) is a hydroponic system used for growing plants without soil, where nutrient-rich water flows continuously over the plant roots in a thin film. In an NFT system, plants are typically grown in channels or gullies, with their roots suspended in the flowing nutrient solution.Benefits of NFT systems include efficient water and nutrient usage, better aeration for roots, and the ability to grow plants in a controlled environment without soil. However, they require careful monitoring of pH, nutrient levels, and water flow to ensure optimal plant growth. <span style="color:#004818;"><b>Are you considering setting up a hydroponic system?</span></b>
+        </p>
+    </div> -->
+
+    <!-- <section class="lookbook-products position-relative">
+        <img class="w-100 h-auto" loading="lazy" src="{% static 'images/home1/lookbook.png' %}" width="1903" height="709" alt="">
+        <button class="popover-point type2 position-absolute" style="left: 41%; top: 3%;" data-bs-toggle="popover"
+            data-bs-trigger="focus" data-bs-content='
+    <div class="popover-product">
+      <a href=" ">
+        <img loading="lazy" class="mb-3" src="" alt="">
+      </a>
+      <p class="fw-medium mb-0"><a href=" ">Stand</a></p>
+      <p class="mb-0"></p>
+    </div>
+  '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+        <button class="popover-point type2 position-absolute" style="left: 49%; top: 14%;" data-bs-toggle="popover"
+            data-bs-trigger="focus" data-bs-content='
+    <div class="popover-product">
+      <p class="fw-medium mb-0"><a href=" ">Net Pot</a></p>
+      <p class="mb-0"></p>
+    </div>
+  '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+        <button class="popover-point type2 position-absolute" style="left: 63%; top: 33%;" data-bs-toggle="popover"
+            data-bs-trigger="focus" data-bs-content='
+    <div class="popover-product">
+      <p class="fw-medium mb-0"><a href=" ">Expanded Clay Aggregate</a></p>
+      <p class="mb-0"></p>
+    </div>
+  '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+      
+        <button class="popover-point type2 position-absolute" style="left: 79%; top: 42%;" data-bs-toggle="popover"
+            data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+    <div class="popover-product">
+      <p class="fw-medium mb-0"><a href=" ">Timer</a></p>
+      <p class="mb-0"></p>
+    </div>
+  '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+        <button class="popover-point type2 position-absolute" style="left:78%; top: 73%;" data-bs-toggle="popover"
+            data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+    <div class="popover-product">
+      <p class="fw-medium mb-0"><a href=" ">Reserviour</a></p>
+      <p class="mb-0"></p>
+    </div>
+  '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+ 
+
+        <button class="popover-point type2 position-absolute" style="left:55%; top: 87%;" data-bs-toggle="popover"
+            data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+  <div class="popover-product">
+    <p class="fw-medium mb-0"><a href=" ">Submersible Pump</a></p>
+    <p class="mb-0"></p>
+  </div>
+'><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+
+        <button class="popover-point type2 position-absolute" style="left:27%; top: 77%;" data-bs-toggle="popover"
+            data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+<div class="popover-product">
+  <p class="fw-medium mb-0"><a href=" ">Openable NFT Channel</a></p>
+  <p class="mb-0"></p>
+</div>
+'><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+
+
+    </section> -->
+
+    <div class="mb-2 pb-4"></div>
+
+    <section class="product-single container product-single__type-9">
+        <div class="row">
+
+            <div class="col-lg-7">
+                <section class="lookbook-products position-relative">
+                    <img class="w-100 h-auto" loading="lazy" src="{% static 'images/home1/pop-over-2.jpg' %}" width="1903"
+                        height="709" alt="" style="box-shadow: 0px 25px 40px #8DC743;">
+                    <button class="popover-point type2 position-absolute" style="left: 41%; top: 3%;"
+                     data-bs-trigger="focus" data-bs-content='
+        
+        '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+                    <button class="popover-point type2 position-absolute" style="left: 49%; top: 14%;"
+                     data-bs-trigger="focus" data-bs-content='
+        
+        '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+                    <button class="popover-point type2 position-absolute" style="left: 63%; top: 33%;"
+                     data-bs-trigger="focus" data-bs-content='
+         
+        '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+                    <button class="popover-point type2 position-absolute" style="left: 62%; top: 46%;"
+                     data-bs-trigger="focus" data-bs-placement="top" data-bs-content='
+    
+        '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+                    <button class="popover-point type2 position-absolute" style="left: 79%; top: 42%;"
+                     data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+      
+        '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+                    <button class="popover-point type2 position-absolute" style="left:78%; top: 73%;"
+                     data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+    
+        '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+                    <button class="popover-point type2 position-absolute" style="left:75%; top: 87%;"
+                     data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+    
+        '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+
+                    <button class="popover-point type2 position-absolute" style="left:55%; top: 87%;"
+                     data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+   
+      '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+
+                    <button class="popover-point type2 position-absolute" style="left:27%; top: 77%;"
+                         data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+
+    '><span><img src="{% static './images/leaf.svg' %}" width="24px"></span></button>
+
+
+                </section>
+            </div>
+            <div class="col-lg-5">
+                <br>
+                <h2 class="text-uppercase">Visual Insights:  <strong style="color:#004818 !important">Explore Our Infographic Collection</strong></h2>
+                <p style="text-align: justify;">
+                    <br>
+                    Delve into our curated collection of informative infographics, offering visual insights into a variety of topics. From complex data to step-by-step guides, our infographics provide an engaging way to learn and understand. Explore this visual journey to gain valuable knowledge and discover new perspectives on a range of subjects <br>
+                    <br>
+                    Immerse yourself in a world of visual storytelling with our diverse array of infographics. From captivating statistics to practical how-tos, each image is a gateway to understanding complex concepts at a glance. Whether you're seeking inspiration or in-depth analysis, our infographic collection offers something for everyone. Start exploring today and unlock a wealth of knowledge in a single glance. <br>
+                </p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="product-single container product-single__type-9">
+        <div class="row">
+            <div class="col-lg-6">
+                <br>
+                <h2 class="text-uppercase">Have a look: <br> <strong style="color:#004818 !important">Vertical aeroponics plant system</strong></h2>
+                <p style="text-align: justify;">
+                    <br>
+                    Vertical aeroponic plant systems represent an innovative approach to urban agriculture, revolutionizing the way we grow crops in limited spaces. In this system, plants are suspended in vertical columns or towers, with their roots exposed to a nutrient-rich mist or spray. Unlike traditional soil-based farming or even hydroponics, vertical aeroponics maximizes space efficiency by stacking plant growth vertically. This not only conserves land but also optimizes resource use, requiring less water and nutrients compared to conventional farming methods.  <br>
+                    <br>
+                    Additionally, the controlled environment of vertical aeroponic systems minimizes the risk of pests and diseases, leading to healthier plants and higher yields. As a sustainable solution to food production, these systems hold immense potential for urban areas, enabling communities to cultivate fresh produce locally and reducing the carbon footprint associated with transporting food over long distances. <br><br>
+                    With advancements in technology and increased awareness of the importance of sustainable agriculture, vertical aeroponic plant systems are poised to play a significant role in the future of food production.<br><br>
+                    Vertical aeroponic plant systems offer numerous advantages beyond just efficient space utilization. By suspending plants in the air and delivering nutrients directly to their roots through a fine mist, these systems promote rapid and robust growth. The aeroponic method ensures that plants have access to oxygen, which enhances nutrient uptake and encourages healthier root development. Moreover, vertical aeroponic systems can be implemented indoors, allowing for year-round cultivation regardless of external weather conditions.<br>
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <section class="lookbook-products position-relative">
+                    <img class="w-100 h-auto" loading="lazy" src="{% static 'images/tower-product.jpg' %}" width="50%"
+                        height="50%" alt="" style="box-shadow: 0px 25px 40px #8DC743;">
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials bg-white">
+        <div class="container">
+            <h2 class="section-title text-center fw-normal mb-1 mb-md-3 pb-xl-3 mb-xl-4">Testimonials</h2>
+
+            <div class="position-relative">
+                <div class="swiper-container js-swiper-slider" data-settings='{
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": 1,
+          "slidesPerGroup": 1,
+          "effect": "none",
+          "loop": true,
+          "pagination": {
+            "el": ".testimonial-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "navigation": {
+            "nextEl": ".testimonial-carousel__next",
+            "prevEl": ".testimonial-carousel__prev"
+          }
+        }'>
+                    <div class="swiper-wrapper testimonials__wrapper">
+                        {% for testimonial in testimonials %}
+                        <div class="swiper-slide testimonials__item mb-4 text-center">
+                            <div class="w-740 mx-auto">
+                                <h5 class="fw-normal lh-2rem mb-4" style="text-align: justify;">{{testimonial.testimonial|safe}}</h5>
+                                <p class="text-secondary mb-1">{{testimonial.testimonial_name}}</p>
+                                <p class="text-secondary mb-0"><b>{{testimonial.testimonial_company}}</b></p>
+                                <!-- <div class="border-circle overflow-hidden w-100px h-100px mx-auto">
+                                    <img loading="lazy" src="{{testimonial.testimonial_image.url}}" width="100"
+                                        height="100" alt="">
+                                </div> -->
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div><!-- /.swiper-wrapper -->
+                </div><!-- /.swiper-container js-swiper-slider -->
+
+                <div
+                    class="products-carousel__prev testimonial-carousel__prev position-absolute top-50 d-flex align-items-center justify-content-center">
+                    <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_prev_md" />
+                    </svg>
+                </div><!-- /.products-carousel__prev -->
+                <div
+                    class="products-carousel__next testimonial-carousel__next position-absolute top-50 d-flex align-items-center justify-content-center">
+                    <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_next_md" />
+                    </svg>
+                </div><!-- /.products-carousel__next -->
+
+                <div class="testimonial-pagination type2 mt-4 d-flex align-items-center justify-content-center">
+                </div>
+                <!-- /.products-pagination -->
+            </div><!-- /.position-relative -->
+
+            <div class="mt-1 pt-4 mt-xl-5 pt-xl-5"></div>
+        </div>
+    </section>
+
+    <section class="video-banner position-relative">
+        <!-- <div class="h-100 d-flex flex-column justify-content-end position-relative py-3 py-xl-5">
+    <div class="container">
+      <h2 class="text-white fw-normal mb-3">UOMO<br>Studio Collection</h2>
+      <p class="text-white fs-6 mb-3">Low impact for the high powered.</p>
+
+      <button
+        class="btn btn-outline-primary border-0 fs-base fw-normal btn-45 border-circle bg-yellow-ffd35b text-primary mb-3">
+        <span>Shop Now</span>
+      </button>
+    </div>
+  </div>
+
+  <button class="btn-video-player text-white position-absolute position-center" data-video="#video_banner_1">
+    <svg class="btn-play" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M15.4465 9.04281C15.4206 8.99101 15.3947 8.9651 15.3688 8.9392C15.317 8.86149 15.2652 8.80968 15.1875 8.73197C15.1098 8.65426 15.0062 8.57655 14.9285 8.52474L8.99656 4.43198L3.03874 0.313318C2.65019 0.0283787 2.15802 -0.0493319 1.71766 0.0283788C1.2773 0.106089 0.862847 0.365125 0.603811 0.753678C0.500197 0.909099 0.422487 1.06452 0.370679 1.21994C0.318872 1.34946 0.292969 1.47898 0.292969 1.6344C0.292969 1.6603 0.292969 1.71211 0.292969 1.73801V10.0012V18.2386C0.292969 18.7307 0.500197 19.1711 0.81104 19.4819C1.09598 19.7928 1.53634 20 2.02851 20C2.23573 20 2.44296 19.9741 2.62429 19.8964C2.80561 19.8446 2.96103 19.741 3.11646 19.6115L8.99656 15.5446L14.9026 11.4518C14.9285 11.4259 14.9803 11.4 15.0062 11.3741C15.3688 11.0892 15.602 10.7006 15.6797 10.2862C15.7574 9.87173 15.6797 9.40546 15.4465 9.04281ZM14.1514 10.3639L8.19355 14.4826L2.33935 18.5235C2.31345 18.5235 2.28754 18.5494 2.28754 18.5494C2.26164 18.5753 2.20983 18.6012 2.15802 18.6271C2.10622 18.653 2.08031 18.653 2.02851 18.653C1.92489 18.653 1.82128 18.6012 1.74357 18.5494C1.66586 18.4717 1.63995 18.3681 1.63995 18.2645V10.0012H1.61405V1.84163C1.61405 1.81572 1.61405 1.78982 1.61405 1.76392V1.73801C1.61405 1.71211 1.61405 1.68621 1.63995 1.6603C1.63995 1.6344 1.66586 1.6085 1.66586 1.58259C1.69176 1.55669 1.69176 1.55669 1.69176 1.53078C1.74357 1.45307 1.84718 1.40127 1.92489 1.40127C2.02851 1.37536 2.10622 1.40127 2.20983 1.45307C2.23573 1.47898 2.26164 1.47898 2.28754 1.50488L8.19355 5.59764L14.1255 9.6904C14.1514 9.71631 14.1773 9.71631 14.1773 9.74221C14.2032 9.76811 14.2032 9.79402 14.2291 9.79402C14.2809 9.89763 14.3068 10.0012 14.3068 10.1049C14.2809 10.2085 14.2291 10.3121 14.1514 10.3639Z"
+        fill="white" />
+    </svg>
+    <svg class="btn-pause" width="14" height="22" viewBox="0 0 14 22" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1 20.7391V1.26087C1 1.1168 1.1168 1 1.26087 1C1.40494 1 1.52174 1.1168 1.52174 1.26087V20.7391C1.52174 20.8832 1.40494 21 1.26087 21C1.1168 21 1 20.8832 1 20.7391Z"
+        stroke="white" />
+      <path
+        d="M12.4785 20.7391V1.26087C12.4785 1.1168 12.5953 1 12.7394 1C12.8835 1 13.0003 1.1168 13.0003 1.26087V20.7391C13.0003 20.8832 12.8835 21 12.7394 21C12.5953 21 12.4785 20.8832 12.4785 20.7391Z"
+        stroke="white" />
+    </svg>
+  </button> -->
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/wBcnUUkdavE?si=icQwmZr4F_ysgqni"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        <!-- <video id="video_banner_1" class="bg-video" style="z-index: 9999;"> 
+    
+
+  </video> -->
+    </section>
+    <div class="mb-4 pb-4 mb-xl-4 mt-xl-3 pt-xl-3 pb-xl-4"></div>
+
+    <section>
+        <div class="container">
+            <div class="row">
+
+                <h2>Welcome to UrbanFarms</h2>
+
+                <p>UrbanFarms is India's premier and most reliable online plant nursery dedicated to fulfilling all
+                    your
+                    gardening needs. Our online nursery not only offers high-quality exotic indoor plants, outdoor
+                    plants,
+                    flowering plants, and succulents, but we also specialize in providing organic vegetable, herb,
+                    and flower
+                    seeds. UrbanFarms takes pride in delivering premium, stylish planters, top-notch soil and
+                    fertilizers, and a
+                    comprehensive range of gardening tools for every home gardener.</p>
+
+                <h2>Your Gardening Journey Begins Here</h2>
+
+                <p>At UrbanFarms, we go beyond being just a garden store – we are your companion on your gardening
+                    journey
+                    because we believe that plants not only grow in gardens, but they also help people grow. We
+                    embrace the
+                    enchantment of nurturing living things and discovering our inner selves throughout the process,
+                    celebrating
+                    the joy of witnessing the first new leaf, bloom, or sprouted seed.</p>
+
+                <h3>A Friend for You and Your Garden</h3>
+
+                <p>UrbanFarms is committed to being more than an online garden store or plant nursery; we strive to
+                    be a
+                    friend who supports both you and your garden's growth. Offering a lifetime of gardening
+                    assistance, we are
+                    here to guide you through all the phases of your gardening adventures.</p>
+            </div>
+
+        </div>
+    </section>
+    <div class="mt-3 mt-xl-4 pb-4"></div>
+    <section class="theme-bg-color">
+        <div class="container">
+            <div class="mb-3 mb-xl-4 pb-4"></div>
+
+            <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3">
+                <div class="d-flex align-items-center gap-3">
+                    <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M44.7812 7.98438C49.7031 12.9062 52.75 19.3516 52.75 26.3828C52.75 40.6797 40.7969 52.3984 26.3828 52.3984C22.0469 52.3984 17.8281 51.2266 13.9609 49.2344L0.25 52.75L3.88281 39.2734C1.65625 35.4062 0.367188 30.9531 0.367188 26.2656C0.367188 11.9688 12.0859 0.25 26.3828 0.25C33.4141 0.25 39.9766 3.0625 44.7812 7.98438ZM26.3828 47.9453C38.3359 47.9453 48.2969 38.2188 48.2969 26.3828C48.2969 20.5234 45.8359 15.1328 41.7344 11.0312C37.6328 6.92969 32.2422 4.70312 26.5 4.70312C14.5469 4.70312 4.82031 14.4297 4.82031 26.2656C4.82031 30.3672 5.99219 34.3516 8.10156 37.8672L8.6875 38.6875L6.46094 46.6562L14.6641 44.4297L15.3672 44.8984C18.7656 46.8906 22.5156 47.9453 26.3828 47.9453ZM38.3359 31.7734C38.9219 32.125 39.3906 32.2422 39.5078 32.5938C39.7422 32.8281 39.7422 34.1172 39.1562 35.6406C38.5703 37.1641 35.9922 38.5703 34.8203 38.6875C32.7109 39.0391 31.0703 38.9219 26.9688 37.0469C20.4062 34.2344 16.1875 27.6719 15.8359 27.3203C15.4844 26.8516 13.2578 23.8047 13.2578 20.5234C13.2578 17.3594 14.8984 15.8359 15.4844 15.1328C16.0703 14.4297 16.7734 14.3125 17.2422 14.3125C17.5938 14.3125 18.0625 14.3125 18.4141 14.3125C18.8828 14.3125 19.3516 14.1953 19.9375 15.4844C20.4062 16.7734 21.8125 19.9375 21.9297 20.2891C22.0469 20.6406 22.1641 20.9922 21.9297 21.4609C20.7578 23.9219 19.3516 23.8047 20.0547 24.9766C22.6328 29.3125 25.0938 30.8359 28.9609 32.7109C29.5469 33.0625 29.8984 32.9453 30.3672 32.5938C30.7188 32.125 32.0078 30.6016 32.3594 30.0156C32.8281 29.3125 33.2969 29.4297 33.8828 29.6641C34.4688 29.8984 37.6328 31.4219 38.3359 31.7734Z"
+                            fill="white" />
+                    </svg>
+                    <h3 class="mb-0 text-white fw-normal">Whatsapp Ordering Service</h3>
+                </div>
+                <h3 class="mb-0 text-white fw-normal">
+                    <span>Place Your Orders At </span>
+                    <span class="theme-color-secondary custom">+91-8879658654</span>
+                </h3>
+            </div>
+
+            <div class="mt-3 mt-xl-4 pb-4"></div>
+        </div>
+    </section>
+</main>
+{% endblock main %}

@@ -1,0 +1,88 @@
+{% extends "partials/base.html" %} {% load static %} {% block main %}
+    <main>
+        <div class="full-width_padding">
+            <div class="breadcrumb mb-0 d-md-block flex-grow-1">
+              <a href="/" class="menu-link menu-link_us-s text-uppercase fw-medium"
+                >Home</a
+              >
+              <span class="breadcrumb-separator menu-link fw-medium ps-1 pe-1"
+                >&#10093;</span
+              >
+              <a href="#" class="menu-link menu-link_us-s text-uppercase fw-medium"
+                >About Us</a
+              >
+            </div>
+          </div>
+        <div class="mb-4 pb-4"></div>
+        <section class="about-us container">
+            <div class="about-us__content pb-5 mb-5">
+                <p class="mb-5">
+                    <img loading="lazy" class="w-100 h-auto d-block" src="{% static 'images/about-us-banner.jpg' %}" width="1410"
+                        height="550" alt="">
+                </p>
+                <div class="mw-930">
+                    <h3 class="mb-4">Welcome to Urban Farm – Where Sustainability Grows in smarter way</h3>
+                    <p class="fs-6 fw-medium mb-4">At Urban Farm, we are passionate about revolutionizing urban agriculture and transforming the way people interact with their environment. Our mission is twofold: to bridge the gap between urban dwellers and agriculture, and to promote sustainable cultivation practices that enhance our quality of life while reducing our carbon footprint.</p>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h5 class="mb-3">Our Mission</h5>
+                            <p class="mb-3">At Urban Farm, our mission is to promote sustainable cultivation practices that enhance quality of life and reduce carbon footprint, while bridging the gap between urban dwellers and agriculture. Join us in our mission to transform urban landscapes into thriving hubs of greenery and abundance. Together, we can cultivate a brighter future for generations to come. We empower individuals and communities to reconnect with nature and take control of their food production in an eco-friendly and efficient manner. </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="mb-3">Our Vision</h5>
+                            <p class="mb-3">Urban Farm is dedicated to promoting the adoption of innovative agricultural technologies such as hydroponics and aquaponics. These cutting-edge methods eliminate the need for soil, making it possible to cultivate crops in urban environments, including rooftops and indoor spaces. By harnessing the power of these flagship technologies, we empower individuals and communities to reconnect with nature and take control of their food production in an eco-friendly and efficient manner.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mw-930">
+                    <h3>Empowering Urban Farmers</h3>
+                    <p class="fs-6 fw-medium mb-4">We believe that urban farming holds the key to a greener, more sustainable future. By providing access to resources, knowledge, and high-quality products, Urban Farm empowers aspiring urban farmers to embark on their own journey towards self-sufficiency and environmental stewardship. Whether you're a seasoned gardener or a novice enthusiast, we're here to support you every step of the way.</p>
+                </div>
+                <div class="mw-930">
+                    <h3>Join Us in Cultivating Change</h3>
+                    <p class="fs-6 fw-medium mb-4">Urban Farm is more than just a marketplace – it's a movement towards a healthier, more sustainable world. Join us in our mission to transform urban landscapes into thriving hubs of greenery and abundance. Together, we can cultivate a brighter future for generations to come.</p>
+                </div>
+                <div class="mw-930">
+                    <h3>Get Involved</h3>
+                    <p class="fs-6 fw-medium mb-4">Are you ready to embark on your urban farming journey? Explore our wide range of products, resources, and educational materials to get started. Connect with us on social media, sign up for our newsletter, and become part of our growing community of urban farmers. Together, we can cultivate change, one plant at a time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-promotion horizontal container mw-930 pt-0 mb-md-4 pb-md-4 mb-xl-5">
+            <div class="row">
+                <div class="col-md-6 text-center mb-5 mb-md-0">
+                    <div class="service-promotion__icon mb-4">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon_shipping" />
+                        </svg>
+                    </div>
+                    <h3 class="service-promotion__title fs-6 text-uppercase">Fast And Free Delivery</h3>
+                    <p class="service-promotion__content text-secondary">Free delivery for all orders</p>
+                </div><!-- /.col-md-4 text-center-->
+
+                <div class="col-md-6 text-center mb-5 mb-md-0">
+                    <div class="service-promotion__icon mb-4">
+                        <svg width="53" height="52" viewBox="0 0 53 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon_headphone" />
+                        </svg>
+                    </div>
+                    <h3 class="service-promotion__title fs-6 text-uppercase">24/7 Customer Support</h3>
+                    <p class="service-promotion__content text-secondary">Friendly 24/7 customer support</p>
+                </div><!-- /.col-md-4 text-center-->
+
+                {% comment %} <div class="col-md-4 text-center mb-4 pb-1 mb-md-0">
+                    <div class="service-promotion__icon mb-4">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon_shield" />
+                        </svg>
+                    </div>
+                    <h3 class="service-promotion__title fs-6 text-uppercase">Money Back Guarantee</h3>
+                    <p class="service-promotion__content text-secondary">We return money within 30 days</p>
+                </div><!-- /.col-md-4 text-center--> {% endcomment %}
+            </div><!-- /.row -->
+        </section>
+    </main>
+
+    <div class="mb-5 pb-xl-5"></div>
+    {% endblock main %}

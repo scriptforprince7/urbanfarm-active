@@ -1,0 +1,92 @@
+{% extends "partials/base.html" %} {% load static %} {% block main %}
+
+<main>
+    <div class="mb-4 pb-4"></div>
+    <section class="shop-checkout container">
+        {% comment %} <h2 class="page-title">Order Received</h2> {% endcomment %}
+        {% comment %} <div class="checkout-steps">
+            <a href="/cart" class="checkout-steps__item active">
+                <span class="checkout-steps__item-number">01</span>
+                <span class="checkout-steps__item-title">
+                    <span>Shopping Bag</span>
+                    <em>Manage Your Items List</em>
+                </span>
+            </a>
+            <a href="/checkout" class="checkout-steps__item active">
+                <span class="checkout-steps__item-number">02</span>
+                <span class="checkout-steps__item-title">
+                    <span>Shipping and Checkout</span>
+                    <em>Checkout Your Items List</em>
+                </span>
+            </a>
+            <a href="/confirmation" class="checkout-steps__item active">
+                <span class="checkout-steps__item-number">03</span>
+                <span class="checkout-steps__item-title">
+                    <span>Confirmation</span>
+                    <em>Review And Submit Your Order</em>
+                </span>
+            </a>
+        </div> {% endcomment %}
+        <div class="order-complete">
+            <div class="order-complete__message">
+                <img src="{% static 'images/payment_failed.jpg' %}" alt="" width="15%">
+                <br>
+                <h4 style="font-size: 2rem;">Payment Failed. Please Try Again.</h4>
+                <p>Oops, Your Payment is Failed!</p><br>
+                <a href="/checkout" class="btn btn-danger mt-3 d-block">Pay Again</a>
+            </div> 
+            <div class="order-info">
+                <div class="order-info__item">
+                    <label for="errorDescription">Error Description</label>
+                    <span></span>
+                </div>
+                <div class="order-info__item">
+                    <label for="orderId">Order ID</label>
+                    <span></span>
+                </div>
+                <div class="order-info__item">
+                    <label for="paymentId">Payment ID</label>
+                    <span></span>
+                </div>
+                <div class="order-info__item">
+                    <label for="errorCode">Error Code</label>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="mb-5 pb-xl-5"></div>
+
+<script>
+    // Extract query parameters from URL
+    function getQueryParams() {
+        var queryParams = {};
+        var queryString = window.location.search.substring(1);
+        var pairs = queryString.split('&');
+        pairs.forEach(function(pair) {
+            var keyValue = pair.split('=');
+            var key = decodeURIComponent(keyValue[0]);
+            var value = decodeURIComponent(keyValue[1]);
+            queryParams[key] = value;
+        });
+        return queryParams;
+    }
+
+    // Display error details
+    window.onload = function() {
+        var errorDetails = getQueryParams();
+        var orderInfoDiv = document.querySelector('.order-info');
+
+        // Populate error details
+        if (orderInfoDiv) {
+            orderInfoDiv.querySelector('label[for="errorDescription"]').nextElementSibling.textContent = errorDetails.description;
+            orderInfoDiv.querySelector('label[for="orderId"]').nextElementSibling.textContent = errorDetails.order_id;
+            orderInfoDiv.querySelector('label[for="paymentId"]').nextElementSibling.textContent = errorDetails.payment_id;
+            orderInfoDiv.querySelector('label[for="errorCode"]').nextElementSibling.textContent = errorDetails.code;
+        }
+    };
+</script>
+
+{% endblock main %}

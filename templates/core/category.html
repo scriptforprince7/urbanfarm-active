@@ -1,0 +1,707 @@
+{% extends "partials/base.html" %} {% load static %} {% block main %}
+
+<main>
+  <div class="full-width_padding">
+    <div class="breadcrumb mb-0 d-md-block flex-grow-1">
+      <a href="/" class="menu-link menu-link_us-s text-uppercase fw-medium"
+        >Home</a
+      >
+      <span class="breadcrumb-separator menu-link fw-medium ps-1 pe-1"
+        >&#10093;</span
+      >
+      <a href="/shop-category" class="menu-link menu-link_us-s text-uppercase fw-medium"
+        >Category</a
+      >
+      <span class="breadcrumb-separator menu-link fw-medium ps-1 pe-1"
+        >&#10093;</span
+      >
+      <a href="#" class="menu-link menu-link_us-s text-uppercase fw-medium"
+        >{{main_categories.main_title}}</a
+      >
+    </div>
+  </div>
+
+  <section class="">
+    <div class="" style="border-color: #f5e6e0">
+      <div class="shop-banner position-relative">
+        <div class="background-img" style="background-color: #f5e6e0">
+          <img
+            loading="lazy"
+            src="{{main_categories.banner_image.url}}"
+            width="1759"
+            height="420"
+            alt="Pattern"
+            class="slideshow-bg__img object-fit-cover"
+          />
+        </div>
+
+        <div
+          class="shop-banner__content container position-absolute start-50 top-50 translate-middle"
+        >
+        </div>
+        <!-- /.shop-banner__content -->
+      </div>
+      <!-- /.shop-banner position-relative -->
+    </div>
+    <!-- /.full-width_border -->
+  </section>
+
+  <!-- /.full-width_padding-->
+
+  <div class="mb-4 pb-lg-3"></div>
+
+  <section class="shop-main container d-flex">
+    <div class="shop-sidebar side-sticky bg-body" id="shopFilter">
+      <div class="aside-header d-flex d-lg-none align-items-center">
+        <h3 class="text-uppercase fs-6 mb-0">Filter By</h3>
+        <button
+          class="btn-close-lg js-close-aside btn-close-aside ms-auto"
+        ></button>
+      </div>
+      <!-- /.aside-header -->
+
+      <div class="pt-4 pt-lg-0"></div>
+
+      <div class="accordion" id="categories-list">
+        <div class="accordion-item mb-4 pb-3">
+          <h5 class="accordion-header" id="accordion-heading-11">
+            <button
+              class="accordion-button p-0 border-0 fs-5 text-uppercase"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#accordion-filter-1"
+              aria-expanded="true"
+              aria-controls="accordion-filter-1"
+            >
+              Shop by Categories
+              <svg
+                class="accordion-button__icon type2"
+                viewBox="0 0 10 6"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g aria-hidden="true" stroke="none" fill-rule="evenodd">
+                  <path
+                    d="M5.35668 0.159286C5.16235 -0.053094 4.83769 -0.0530941 4.64287 0.159286L0.147611 5.05963C-0.0492049 5.27473 -0.049205 5.62357 0.147611 5.83813C0.344427 6.05323 0.664108 6.05323 0.860924 5.83813L5 1.32706L9.13858 5.83867C9.33589 6.05378 9.65507 6.05378 9.85239 5.83867C10.0492 5.62357 10.0492 5.27473 9.85239 5.06018L5.35668 0.159286Z"
+                  />
+                </g>
+              </svg>
+            </button>
+          </h5>
+          <div
+            id="accordion-filter-1"
+            class="accordion-collapse collapse show border-0"
+            aria-labelledby="accordion-heading-11"
+            data-bs-parent="#categories-list"
+          >
+            <div class="accordion-body px-0 pb-0 pt-3">
+              <ul class="list list-inline mb-0">
+                {% for main in main_cat %}
+                <li class="list-item">
+                  <a
+                    href="{% url 'core:category' main.main_title %}"
+                    class="menu-link py-1"
+                    >{{main.main_title}}</a
+                  >
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /.accordion-item -->
+      </div>
+      <!-- /.accordion-item -->
+      <!-- /.accordion -->
+      {% if materials %}
+      <div class="accordion" id="size-filters">
+          <div class="accordion-item mb-4 pb-3">
+              <h5 class="accordion-header" id="accordion-heading-size">
+                  <button
+                      class="accordion-button p-0 border-0 fs-5 text-uppercase"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#accordion-filter-size"
+                      aria-expanded="true"
+                      aria-controls="accordion-filter-size"
+                  >
+                      Constructed Material
+                      <svg
+                          class="accordion-button__icon type2"
+                          viewBox="0 0 10 6"
+                          xmlns="http://www.w3.org/2000/svg"
+                      >
+                          <g aria-hidden="true" stroke="none" fill-rule="evenodd">
+                              <path
+                                  d="M5.35668 0.159286C5.16235 -0.053094 4.83769 -0.0530941 4.64287 0.159286L0.147611 5.05963C-0.0492049 5.27473 -0.049205 5.62357 0.147611 5.83813C0.344427 6.05323 0.664108 6.05323 0.860924 5.83813L5 1.32706L9.13858 5.83867C9.33589 6.05378 9.65507 6.05378 9.85239 5.83867C10.0492 5.62357 10.0492 5.27473 9.85239 5.06018L5.35668 0.159286Z"
+                              />
+                          </g>
+                      </svg>
+                  </button>
+              </h5>
+              <div
+                  id="accordion-filter-size"
+                  class="accordion-collapse collapse show border-0"
+                  aria-labelledby="accordion-heading-size"
+                  data-bs-parent="#size-filters"
+              >
+                  <div class="accordion-body px-0 pb-0">
+                      <div class="d-flex flex-wrap">
+                          {% for option in materials %}
+                          <a href="#" data-material="{{ option }}"
+                              class="swatch-size btn btn-sm btn-outline-light mb-3 me-3 js-filter">
+                              {{ option }}
+                          </a>
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- /.accordion-item -->
+      </div>
+      {% endif %}
+      
+      <!-- /.accordion -->
+
+      <!-- /.accordion -->
+
+      <div class="accordion" id="price-filters">
+        <div class="accordion-item mb-4">
+            <h5 class="accordion-header mb-2" id="accordion-heading-price">
+                <button class="accordion-button p-0 border-0 fs-5 text-uppercase" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#accordion-filter-price" aria-expanded="true"
+                        aria-controls="accordion-filter-price">
+                    Price
+                    <svg
+                    class="accordion-button__icon type2"
+                    viewBox="0 0 10 6"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g aria-hidden="true" stroke="none" fill-rule="evenodd">
+                      <path
+                        d="M5.35668 0.159286C5.16235 -0.053094 4.83769 -0.0530941 4.64287 0.159286L0.147611 5.05963C-0.0492049 5.27473 -0.049205 5.62357 0.147611 5.83813C0.344427 6.05323 0.664108 6.05323 0.860924 5.83813L5 1.32706L9.13858 5.83867C9.33589 6.05378 9.65507 6.05378 9.85239 5.83867C10.0492 5.62357 10.0492 5.27473 9.85239 5.06018L5.35668 0.159286Z"
+                      />
+                    </g>
+                  </svg>
+                </button>
+            </h5>
+            <div id="accordion-filter-price"
+                 class="accordion-collapse collapse show border-0"
+                 aria-labelledby="accordion-heading-price"
+                 data-bs-parent="#price-filters">
+                <form method="GET" action="{% url 'core:category' main_categories.main_title %}">
+                    <input class="price-range-slider" type="text" name="price_range" value=""
+                           data-slider-min="{{ min_price }}" data-slider-max="{{ max_price }}" data-slider-step="5"
+                           data-slider-value="[{{ min_price }}, {{ max_price }}]" data-currency="₹"/>
+                    <div class="price-range__info d-flex align-items-center mt-2">
+                        <div class="me-auto">
+                            <span class="text-secondary">Min Price: </span>
+                            <span class="price-range__min">₹ {{ min_price }}</span>
+                        </div>
+                        <div>
+                            <span class="text-secondary">Max Price: </span>
+                            <span class="price-range__max">₹ {{ max_price }}</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Apply</button>
+                </form>
+            </div>
+        </div>
+        <!-- /.accordion-item -->
+    </div>
+    
+      <!-- /.accordion -->
+    </div>
+    <!-- /.shop-sidebar -->
+    <style>
+      .variant-name {
+          font-size: 15px;
+          color: green;
+      }
+  </style>
+    {% if categories %}
+<div class="shop-list flex-grow-1">
+  <div class="category_custom mb-0 d-none d-md-block flex-grow-1">
+    <p>{{main_categories.description}}. We have find <span style="color: #004818;"><b>{{categories.count}} sub-categories</b></span> in the <b>{{main_categories.main_title}}</b> category.</p>
+  </div>
+  <hr>
+  <!-- repeat -->
+  {% for categor in categories %}
+  <div>
+    <div class="d-flex justify-content-between mb-4 pb-md-2">
+      <div class="category_custom mb-0 d-none d-md-block flex-grow-1">
+        <h2>{{categor.cat_title}}</h2>
+      </div>
+      <!-- /.breadcrumb -->
+
+      <div
+        class="shop-acs d-flex align-items-center justify-content-between justify-content-md-end flex-grow-1"
+      >
+        <div
+          class="shop-asc__seprator mx-3 bg-light d-none d-md-block order-md-0"
+        ></div>
+
+        <div class="col-size align-items-center order-1 d-none d-lg-flex">
+          <span class="text-uppercase fw-medium me-2">View</span>
+          <button
+            class="btn-link fw-medium me-2 js-cols-size"
+            data-target="products-grid"
+            data-cols="2"
+          >
+            2
+          </button>
+          <button
+            class="btn-link fw-medium me-2 js-cols-size"
+            data-target="products-grid"
+            data-cols="3"
+          >
+            3
+          </button>
+          <button
+            class="btn-link fw-medium js-cols-size"
+            data-target="products-grid"
+            data-cols="4"
+          >
+            4
+          </button>
+        </div>
+        <!-- /.col-size -->
+
+        <div
+          class="shop-filter d-flex align-items-center order-0 order-md-3 d-lg-none"
+        >
+          <button
+            class="btn-link btn-link_f d-flex align-items-center ps-0 js-open-aside"
+            data-aside="shopFilter"
+          >
+            <svg
+              class="d-inline-block align-middle me-2"
+              width="14"
+              height="10"
+              viewBox="0 0 14 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="#icon_filter" />
+            </svg>
+            <span class="text-uppercase fw-medium d-inline-block align-middle"
+              >Filter</span
+            >
+          </button>
+        </div>
+        <!-- /.col-size d-flex align-items-center ms-auto ms-md-3 -->
+      </div>
+      <!-- /.shop-acs -->
+    </div>
+
+    <div class="products-grid row row-cols-2 row-cols-md-4" id="products-grid">
+      {% for pc in products_categories %}
+      {% if pc.category == categor %}
+      <div class="product-card-wrapper">
+        <div class="product-card mb-3 mb-md-4 mb-xxl-5">
+          <div class="pc__img-wrapper">
+            <div
+              class="swiper-container background-img js-swiper-slider"
+              data-settings='{"resizeObserver": true}'
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="{% url 'core:product_new' pc.title %}"
+                    ><img
+                      loading="lazy"
+                      src="{{pc.image.url}}"
+                      width="330"
+                      height="400"
+                      alt="{{product.title}}"
+                      class="pc__img"
+                  /></a>
+                </div>
+                <!-- /.pc__img-wrapper -->
+                {% for image in product_images %}
+                {% if image.product == product %}
+                  <div class="swiper-slide">
+                    <a href="{% url 'core:product_new' pc.title %}">
+                      <img loading="lazy" src="{{ image.images.url }}" width="330" height="400" alt="{{ product.title }}" class="pc__img">
+                    </a>
+                  </div>
+                {% endif %}
+              {% endfor %}
+                <!-- /.pc__img-wrapper -->
+              </div>
+              <span class="pc__img-prev"
+                ><svg
+                  width="7"
+                  height="11"
+                  viewBox="0 0 7 11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_prev_sm" /></svg
+              ></span>
+              <span class="pc__img-next"
+                ><svg
+                  width="7"
+                  height="11"
+                  viewBox="0 0 7 11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_next_sm" /></svg
+              ></span>
+            </div>
+            <input type="hidden" value="1" id="product-quantity" class="product-quantity-{{pc.pid}}">
+
+            <input type="hidden" value="{{pc.pid}}" class="product-id-{{pc.pid}}">
+      
+            <input type="hidden" value="{{pc.title}}{% if pc.first_variant_type_title %} - ({{ pc.first_variant_type_title }}){% endif %}" class="product-title-{{pc.pid}}">
+      
+            {% with price_wo_gst=pc.variant_price|default:pc.price %}
+            <input type="hidden" value="{{ price_wo_gst }}" class="product-price-wo-gst-{{ pc.pid }}">
+            {% endwith %}
+      
+            {% if pc.productvarient_set.exists %}
+                      {% with first_variant=product.productvarient_set.first %}
+                      <input type="hidden" value="{{ first_variant.productvarianttypes_set.first.gst_rate }}" class="gst_rate-{{ pc.pid }}">
+                      {% endwith %}
+                  {% else %}
+                  <input type="hidden" value="{{ pc.gst_rate }}" class="gst_rate-{{ pc.pid }}">
+                  {% endif %}
+                  
+            <input type="hidden" value="{{ pc.gst_inclusive_price }}" class="product-price-{{ pc.pid }}">
+      
+            <input type="hidden" value="{{pc.sku}}" class="product-sku-{{pc.pid}}">
+            <input type="hidden" value="{{pc.image.url}}" class="product-image-{{pc.pid}}">
+            <input type="hidden" id="variant-id-hidden-{{ pc.pid }}" value="{{ pc.first_variant_type_id }}">
+            <button
+              class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium js-add-cart js-open-aside add-to-cart-btn"
+              data-aside="cartDrawer"
+              id="add-to-cart-btn"
+              data-index="{{pc.pid}}"
+              title="Add To Cart"
+            >
+              Add To Cart
+            </button>
+          </div>
+
+          <div class="pc__info position-relative">
+            <p class="pc__category">{{main_categories.main_title}}</p>
+            <h6 class="pc__title">
+              <a href="{% url 'core:product_new' pc.title %}">
+                {{ pc.title }} <span class="variant-name">{% if pc.first_variant_type_title %} - ({{ pc.first_variant_type_title }}){% endif %}</span>
+              </a>
+          </h6>
+            <div class="product-card__price d-flex">
+              <span class="money price">₹ {{ pc.gst_inclusive_price|floatformat:"2" }}</span>
+
+            </div>
+            <div class="product-card__review d-flex align-items-center">
+              <div class="reviews-group d-flex">
+                <svg
+                  class="review-star"
+                  viewBox="0 0 9 9"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_star" />
+                </svg>
+                <svg
+                  class="review-star"
+                  viewBox="0 0 9 9"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_star" />
+                </svg>
+                <svg
+                  class="review-star"
+                  viewBox="0 0 9 9"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_star" />
+                </svg>
+                <svg
+                  class="review-star"
+                  viewBox="0 0 9 9"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_star" />
+                </svg>
+                <svg
+                  class="review-star"
+                  viewBox="0 0 9 9"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use href="#icon_star" />
+                </svg>
+              </div>
+              <span class="reviews-note text-lowercase text-secondary ms-1"
+                >5 star rated</span
+              >
+            </div>
+            
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+      <!-- repeat -->
+    </div>
+    {% else %}
+    <div class="shop-list flex-grow-1">
+      <div class="d-flex justify-content-between mb-4 pb-md-2">
+        <div class="category_custom mb-0 d-none d-md-block flex-grow-1">
+          <h2>{{main_categories.main_title}}</h2>
+          <p>
+            {{main_categories.description}}
+          </p>
+          <ul>
+            {% for categor in categories %}
+            <li>{{categor.cat_title}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <!-- /.breadcrumb -->
+
+        <div
+          class="shop-acs d-flex align-items-center justify-content-between justify-content-md-end flex-grow-1"
+        >
+          <div
+            class="shop-asc__seprator mx-3 bg-light d-none d-md-block order-md-0"
+          ></div>
+
+          <div class="col-size align-items-center order-1 d-none d-lg-flex">
+            <span class="text-uppercase fw-medium me-2">View</span>
+            <button
+              class="btn-link fw-medium me-2 js-cols-size"
+              data-target="products-grid"
+              data-cols="2"
+            >
+              2
+            </button>
+            <button
+              class="btn-link fw-medium me-2 js-cols-size"
+              data-target="products-grid"
+              data-cols="3"
+            >
+              3
+            </button>
+            <button
+              class="btn-link fw-medium js-cols-size"
+              data-target="products-grid"
+              data-cols="4"
+            >
+              4
+            </button>
+          </div>
+          <!-- /.col-size -->
+
+          <div
+            class="shop-filter d-flex align-items-center order-0 order-md-3 d-lg-none"
+          >
+            <button
+              class="btn-link btn-link_f d-flex align-items-center ps-0 js-open-aside"
+              data-aside="shopFilter"
+            >
+              <svg
+                class="d-inline-block align-middle me-2"
+                width="14"
+                height="10"
+                viewBox="0 0 14 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon_filter" />
+              </svg>
+              <span class="text-uppercase fw-medium d-inline-block align-middle"
+                >Filter</span
+              >
+            </button>
+          </div>
+          <!-- /.col-size d-flex align-items-center ms-auto ms-md-3 -->
+        </div>
+        <!-- /.shop-acs -->
+      </div>
+
+      <div
+        class="products-grid row row-cols-2 row-cols-md-4"
+        id="products-grid"
+      >
+        {% if products %} {% for product in products %}
+        <div class="product-card-wrapper">
+          <div class="product-card mb-3 mb-md-4 mb-xxl-5">
+            <div class="pc__img-wrapper">
+              <div
+                class="swiper-container background-img js-swiper-slider"
+                data-settings='{"resizeObserver": true}'
+              >
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <a href="{% url 'core:product_new' product.title %}"
+                      ><img
+                        loading="lazy"
+                        src="{{product.image.url}}"
+                        width="330"
+                        height="400"
+                        alt="{{product.title}}"
+                        class="pc__img"
+                    /></a>
+                  </div>
+                  <!-- /.pc__img-wrapper -->
+                  {% for image in product_images %}
+                  {% if image.product == product %}
+                    <div class="swiper-slide">
+                      <a href="{% url 'core:product_new' product.title %}">
+                        <img loading="lazy" src="{{ image.images.url }}" width="330" height="400" alt="{{ product.title }}" class="pc__img">
+                      </a>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+                  <!-- /.pc__img-wrapper -->
+                </div>
+                <span class="pc__img-prev"
+                  ><svg
+                    width="7"
+                    height="11"
+                    viewBox="0 0 7 11"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <use href="#icon_prev_sm" /></svg
+                ></span>
+                <span class="pc__img-next"
+                  ><svg
+                    width="7"
+                    height="11"
+                    viewBox="0 0 7 11"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <use href="#icon_next_sm" /></svg
+                ></span>
+              </div>
+      <input type="hidden" value="1" id="product-quantity" class="product-quantity-{{product.pid}}">
+
+      <input type="hidden" value="{{product.pid}}" class="product-id-{{product.pid}}">
+
+      <input type="hidden" value="{{product.title}}{% if product.first_variant_type_title %} - ({{ product.first_variant_type_title }}){% endif %}" class="product-title-{{product.pid}}">
+
+      {% with price_wo_gst=product.variant_price|default:product.price %}
+      <input type="hidden" value="{{ price_wo_gst }}" class="product-price-wo-gst-{{ product.pid }}">
+      {% endwith %}
+
+      {% if product.productvarient_set.exists %}
+                {% with first_variant=product.productvarient_set.first %}
+                <input type="hidden" value="{{ first_variant.productvarianttypes_set.first.gst_rate }}" class="gst_rate-{{ product.pid }}">
+                {% endwith %}
+            {% else %}
+            <input type="hidden" value="{{ product.gst_rate }}" class="gst_rate-{{ product.pid }}">
+            {% endif %}
+            
+      <input type="hidden" value="{{ product.gst_inclusive_price }}" class="product-price-{{ product.pid }}">
+
+      <input type="hidden" value="{{product.sku}}" class="product-sku-{{product.pid}}">
+      <input type="hidden" value="{{product.image.url}}" class="product-image-{{product.pid}}">
+      <input type="hidden" id="variant-id-hidden-{{ product.pid }}" value="{{ product.first_variant_type_id }}">
+              <button
+                class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium js-add-cart js-open-aside add-to-cart-btn"
+                data-aside="cartDrawer"
+                id="add-to-cart-btn"
+                data-index="{{product.pid}}"
+                title="Add To Cart"
+              >
+                Add To Cart
+              </button>
+            </div>
+
+            <div class="pc__info position-relative">
+              <p class="pc__category">{{main_categories.main_title}}</p>
+              <h6 class="pc__title">
+                <a href="{% url 'core:product_new' product.title %}">
+                    {{ product.title }} <span class="variant-name">{% if product.first_variant_type_title %} - ({{ product.first_variant_type_title }}){% endif %}</span> 
+                </a>
+            </h6>
+              <div class="product-card__price d-flex">
+                <span class="money price">₹ {{ product.gst_inclusive_price|floatformat:"2" }}</span>
+
+              </div>
+              <div class="product-card__review d-flex align-items-center">
+                <div class="reviews-group d-flex">
+                  <svg
+                    class="review-star"
+                    viewBox="0 0 9 9"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <use href="#icon_star" />
+                  </svg>
+                  <svg
+                    class="review-star"
+                    viewBox="0 0 9 9"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <use href="#icon_star" />
+                  </svg>
+                  <svg
+                    class="review-star"
+                    viewBox="0 0 9 9"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <use href="#icon_star" />
+                  </svg>
+                  <svg
+                    class="review-star"
+                    viewBox="0 0 9 9"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <use href="#icon_star" />
+                  </svg>
+                  <svg
+                    class="review-star"
+                    viewBox="0 0 9 9"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <use href="#icon_star" />
+                  </svg>
+                </div>
+                <span class="reviews-note text-lowercase text-secondary ms-1"
+                  >5 star rated</span
+                >
+              </div>
+              
+              </button>
+            </div>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+        <h6 class="pc__title">No Products Found</h6>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    
+  </section>
+  
+  <!-- /.shop-main container -->
+</main>
+  <script>
+    document.querySelectorAll('.js-filter').forEach(filter => {
+        filter.addEventListener('click', () => {
+            const material = filter.dataset.material;
+            const currentUrl = window.location.href;
+            const url = new URL(currentUrl);
+            
+            // Check if the 'material' query parameter already exists
+            if (url.searchParams.has('material')) {
+                // Remove existing 'material' query parameters
+                url.searchParams.delete('material');
+            }
+
+            // Add the selected 'material' query parameter
+            url.searchParams.append('material', material);
+            
+            // Update the URL with the modified query parameters
+            window.location.href = url.href;
+        });
+    });
+  </script>
+
+
+
+<div class="mb-5 pb-xl-5"></div>
+{% endblock main %}

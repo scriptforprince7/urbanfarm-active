@@ -1,0 +1,119 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var radioButtons = document.querySelectorAll('input[name="variant_size"], input[name="variation_size"]');
+      radioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('click', updatePrice);
+      });
+    });
+  
+    function updatePrice() {
+      var hasVariants = {{ has_variants|lower }};
+      var hasVariations = {{ has_variations|lower }};
+    
+      if (hasVariants && hasVariations) {
+        // Proceed with logic if both variants and variations exist
+
+        // Capture the both selected product variant type and product variation type
+        var selectedProductVariantType = //store selected product variant type;
+        var selectedProductVariationType = //store selected product variation type;
+
+        //select the first product variant type and first product variation type by default
+    
+        // Store all the prices and product variant types that are in selected product variation type
+    
+        // Iterate over the prices and find the one matching the selected product variant type
+    
+        var totalPrice = // display the related price
+      } else if (hasVariants) {
+        // Proceed with logic if only variants exist
+        var price = parseFloat(this.getAttribute('data-price'));
+        var gstRate = parseFloat(this.getAttribute('data-gst'));
+
+        //select the first product variant type as default
+    
+        var totalPrice = price + (price * (gstRate / 100));
+    
+        document.getElementById('clicked-price').textContent = totalPrice.toFixed(2);
+        return;
+      } else {
+        // Handle other cases where neither variants nor variations exist
+        document.getElementById('clicked-price').textContent = 'Nothing Exists.';
+      }
+    }
+  </script>
+  
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var radioButtons = document.querySelectorAll('input[name="variant_size"], input[name="variation_size"]');
+      radioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('click', updatePrice);
+      });
+    });
+  
+    function updatePrice() {
+      var hasVariants = {{ has_variants|lower }};
+      var hasVariations = {{ has_variations|lower }};
+  
+      if (hasVariants && hasVariations) {
+        // Proceed with logic if both variants and variations exist
+        var selectedVariantType = document.querySelector('input[name="variant_size"]:checked');
+        var selectedVariationType = document.querySelector('input[name="variation_size"]:checked');
+  
+        // Select the first product variant type and first product variation type by default
+        if (!selectedVariantType) {
+          selectedVariantType = document.querySelector('input[name="variant_size"]');
+          selectedVariantType.checked = true;
+        }
+        if (!selectedVariationType) {
+          selectedVariationType = document.querySelector('input[name="variation_size"]');
+          selectedVariationType.checked = true;
+        }
+  
+        // Store all the prices and product variant types that are in selected product variation type
+var variationPrices = {};
+var variantPrices = {};
+
+{% for variation_type, prices in variation_prices %}
+  variationPrices["{{ variation_type.id }}"] = {};
+  {% for price in prices %}
+    variationPrices["{{ variation_type.id }}"]["{{ price.product_variant_type.id }}"] = {
+      price: {{ price.varient_type_price }},
+      gstRate: {{ price.gst_rate }}
+    };
+  {% endfor %}
+{% endfor %}
+
+// Find the selected product variant type and variation type IDs
+var selectedVariantTypeId = selectedVariantType.getAttribute('data-variant-type-id');
+var selectedVariationTypeId = selectedVariationType.getAttribute('data-variant-type-id');
+
+// Calculate total price based on selected types
+var totalPrice = variationPrices[selectedVariationTypeId][selectedVariantTypeId].price * (1 + (variationPrices[selectedVariationTypeId][selectedVariantTypeId].gstRate / 100));
+
+  
+        // Display the related price
+        document.getElementById('clicked-price').textContent = totalPrice.toFixed(2);
+      } else if (hasVariants) {
+        // Proceed with logic if only variants exist
+        var price = parseFloat(this.getAttribute('data-price'));
+        var gstRate = parseFloat(this.getAttribute('data-gst'));
+  
+        // Select the first product variant type as default
+        var selectedVariantType = document.querySelector('input[name="variant_size"]:checked');
+        if (!selectedVariantType) {
+          selectedVariantType = document.querySelector('input[name="variant_size"]');
+          selectedVariantType.checked = true;
+        }
+  
+        var totalPrice = price + (price * (gstRate / 100));
+  
+        document.getElementById('clicked-price').textContent = totalPrice.toFixed(2);
+      } else {
+        // Handle other cases where neither variants nor variations exist
+        document.getElementById('clicked-price').textContent = 'Nothing Exists.';
+      }
+    }
+  </script>
+  
