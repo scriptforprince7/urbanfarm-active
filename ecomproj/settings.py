@@ -30,7 +30,7 @@ SECRET_KEY = "django-insecure-=gz6u1d6i@v#$c@(zxy_@4+c7w)5hlumrdyu_ru^(_!kc!b5_8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.0.115', 'http://192.168.0.115/', 'https://192.168.0.115/', 'http://192.168.0.113:8000/', '192.168.0.113', 'http://192.168.1.57:8000/', '192.168.1.57:8000', '192.168.1.57']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 SITE_ID = 1
 # Application definition
@@ -158,8 +158,8 @@ EMAIL_HOST_USER = 'princesachdeva@nationalmarketingprojects.com'
 EMAIL_HOST_PASSWORD = 'Prince_django_autuh_admin_panel_49494'
 DEFAULT_FROM_EMAIL = 'princesachdeva@nationalmarketingprojects.com'  # Use the same email as HOST_USER
 
-KEY = 'rzp_test_VhrJLxgWbmNR8Q'
-SECRET = 'Nje9PirB3XMyVa925VWK0eOC'
+KEY = 'rzp_live_88QdsrTOMs6hVM'
+SECRET = '7NU0clV5jBAoop8WzaMWywfQ'
 
 
 
