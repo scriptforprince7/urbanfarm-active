@@ -142,7 +142,7 @@ def category(request, main_title):
     categories = Category.objects.filter(main_category=main_categories).exclude(cat_title="None")
     categories_all = Category.objects.all().exclude(cid="catbef1g41g2g4gbgda5dahbd")
     products_categories = Product.objects.filter(category__in=categories_all)
-    products = Product.objects.filter(main_category=main_categories)
+    products = Product.objects.filter(main_category=main_categories, product_status="published")
     product_images = ProductImages.objects.filter(product__in=products)
 
     product_variants = ProductVarient.objects.filter(product__in=products)
@@ -816,13 +816,22 @@ def checkout_view(request):
                 product_id = item['product_id']
                 product = Product.objects.get(pid=product_id)
                 client = razorpay.Client(auth=(settings.KEY, settings.SECRET))
-                payment = client.order.create(
-                    {'amount': int(item['qty']) * float(item['price']) * 100, 'currency': 'INR', 'payment_capture': 1})
+                amount_in_paise = int(float(item['qty']) * float(item['price']) * 100)
+                payment = client.order.create({
+                    'amount': amount_in_paise,
+                    'currency': 'INR',
+                    'payment_capture': 1
+                })
                 product.razor_pay_order_id = payment['id']
                 product.save()
 
     client = razorpay.Client(auth=(settings.KEY, settings.SECRET))
-    payment = client.order.create({'amount': cart_total_amount * 100, 'currency': 'INR', 'payment_capture': 1})
+    total_amount_in_paise = int(cart_total_amount * 100)
+    payment = client.order.create({
+        'amount': total_amount_in_paise,
+        'currency': 'INR',
+        'payment_capture': 1
+    })
 
     context = {
         "payment": payment,
@@ -897,9 +906,9 @@ class RobotsTxtView(View):
     
 def product_new(request, title):
     product = Product.objects.get(title=title)
-    product_variants = ProductVarient.objects.filter(product=product)
+    product_variants = ProductVarient.objects.filter(product=product, status=True)
     product_variant_types = ProductVariantTypes.objects.filter(product_variant__in=product_variants)
-    product_variations = ProductVariation.objects.filter(product=product)
+    product_variations = ProductVariation.objects.filter(product=product, status=True)
     product_variation_types = ProductVariationTypes.objects.filter(product_variation__in=product_variations)
     related_products = Product.objects.filter(main_category=product.main_category).exclude(pid=product.pid)[:10]
     related_maincategory = product.main_category

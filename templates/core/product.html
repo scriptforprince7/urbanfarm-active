@@ -237,6 +237,10 @@
             <label>Specifications:</label>
             <span>{{products.specifications}}</span>
           </div>
+          <div class="meta-item">
+            <label>Maximum Order Quantity:</label>
+            <span>{{products.maximum_order_qty}}</span>
+          </div>
         </div>
         <form name="addtocart-form" method="post">
 
@@ -253,7 +257,9 @@
                     <div class="swatch-list">
                         {% for variant_type in product_variant_types %}
                         {% if variant_type.product_variant == variant %}
+                        
                         <input type="radio" name="variant_size" id="swatch-{{ variant_type.id }}" {% if forloop.first %}checked{% endif %} data-price="{{ variant_type.varient_price }}" data-gst="{{ variant_type.gst_rate }}" data-variant-type-id="{{ variant_type.id }}" />
+
                         <label class="swatch js-swatch {% if forloop.first %}selected-swatch{% endif %}" for="swatch-{{ variant_type.id }}" aria-label="{{ variant_type.variant_title }}" title="{{ variant_type.variant_title }}">{{ variant_type.variant_title }}</label>
                         {% endif %}
                         {% endfor %}
@@ -282,15 +288,18 @@
           <div class="product-single__addtocart">
             <div class="qty-control position-relative">
               <input
-                type="number"
-                name="quantity"
-                value="1"
-                id="product-quantity-{{products.pid}}"
-                min="1"
-                class="qty-control__number text-center product-quantity-{{products.pid}}"
-              />
-              <div class="qty-control__reduce">-</div>
-              <div class="qty-control__increase">+</div>
+    type="number"
+    name="quantity"
+    value="1"
+    id="product-quantity-{{ products.pid }}"
+    min="1"
+    max="{{ products.maximum_order_qty }}"
+    class="qty-control__number text-center product-quantity-{{ products.pid }}"
+/>
+
+<div class="qty-control__reduce" onclick="decreaseQuantity({{ products.pid }}, {{ products.maximum_order_qty }})">-</div>
+<div class="qty-control__increase" onclick="increaseQuantity({{ products.pid }}, {{ products.maximum_order_qty }})">+</div>
+
             </div>
             <!-- .qty-control -->
             <input type="hidden" value="{{products.pid}}" class="product-id">
@@ -345,7 +354,7 @@
           <p class="content">
             Looking for the perfect growing medium for your hydroponic system? Look no further than our {{products.title}}. Specially designed for optimal plant growth, these discs offer a multitude of benefits for both seasoned growers and beginners alike.
           </p>
-          <div class="row">
+          {% comment %} <div class="row">
               <div class="col-lg-6">
                   <h3 class="block-title">Why Choose {{products.title}}?</h3>
                   <ul class="list text-list">
@@ -366,9 +375,9 @@
                       <li>With a diameter of 30 mm, these discs are perfectly sized for a wide range of plant varieties, providing ample space for root expansion.</li>
                   </ol>
               </div>
-          </div>
-          <h3 class="block-title mb-0">Experience the Difference with {{products.title}}</h3>
-          <p class="content">Elevate your hydroponic gardening experience with our {{products.title}}. With its exceptional quality and performance, it's the ultimate choice for achieving bountiful harvests and flourishing crops. Try it today and witness the difference it makes in your garden!</p>
+          </div> {% endcomment %}
+          {% comment %} <h3 class="block-title mb-0">Experience the Difference with {{products.title}}</h3> {% endcomment %}
+          <p class="content">{{products.description}}</p>
       </div>
         
       </div>
@@ -608,6 +617,35 @@ function updateSwatchSelection() {
         selectedVariationType.nextElementSibling.classList.add('selected-swatch');
     }
 }
+
+</script>
+<script>
+  <script>
+    function increaseQuantity(pid, maxQty) {
+      const quantityInput = document.getElementById(`product-quantity-${pid}`);
+      let currentQuantity = parseInt(quantityInput.value);
+  
+      if (currentQuantity < maxQty) {
+        quantityInput.value = currentQuantity + 1;
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Max quantity exceeded',
+        });
+      }
+    }
+  
+    function decreaseQuantity(pid, maxQty) {
+      const quantityInput = document.getElementById(`product-quantity-${pid}`);
+      let currentQuantity = parseInt(quantityInput.value);
+  
+      if (currentQuantity > 1) {
+        quantityInput.value = currentQuantity - 1;
+      }
+    }
+  </script>
+  
 
 </script>
 
